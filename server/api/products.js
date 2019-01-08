@@ -12,7 +12,7 @@ router.get('/', async (req, res, next) => {
     next(err)
   }
 })
-
+// get /api/products/id responds with the product with given id
 router.get('/:id', async (req, res, next) => {
   try {
     const product = await Product.findById(req.params.id)
