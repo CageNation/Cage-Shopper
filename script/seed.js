@@ -1,7 +1,7 @@
 'use strict'
 
 const db = require('../server/db')
-const {User} = require('../server/db/models')
+const {User, Product} = require('../server/db/models')
 
 async function seed() {
   await db.sync({force: true})
@@ -12,7 +12,25 @@ async function seed() {
     User.create({email: 'murphy@email.com', password: '123'})
   ])
 
+  const products = await Promise.all([
+    Product.create({
+      name: 'Cage Leggings',
+      description: 'The perfect leggings for the gym',
+      imageUrl:
+        'https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcQK6qOss-CBtaLiUgrgLabx8oQY3KdGiYMC0ca2GDgXkkvNZUL_e1-oSadQksyl1XLI8amjUEga&usqp=CAE',
+      price: 49.99
+    }),
+    Product.create({
+      name: 'Nick Cage Shrek Collab Shirt',
+      description: 'RARE',
+      imageUrl:
+        'https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcQK6qOss-CBtaLiUgrgLabx8oQY3KdGiYMC0ca2GDgXkkvNZUL_e1-oSadQksyl1XLI8amjUEga&usqp=CAE',
+      price: 199.99
+    })
+  ])
+
   console.log(`seeded ${users.length} users`)
+  console.log(`seeded ${products.length} products`)
   console.log(`seeded successfully`)
 }
 
