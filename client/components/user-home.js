@@ -11,6 +11,10 @@ export const UserHome = props => {
   return (
     <div>
       <h3>Welcome, {email}</h3>
+      <h4>
+        This is your personal account page. Too bad there's nothing for you to
+        do here :(
+      </h4>
     </div>
   )
 }
