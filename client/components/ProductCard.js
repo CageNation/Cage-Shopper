@@ -10,6 +10,9 @@ const ProductCard = props => {
       <img src={product.imageUrl} />
       <p>{`description: ${product.description}`}</p>
       <h3>{`price: ${product.price}`}</h3>
+      <button type="submit" onClick={() => console.log('BOOP BEEP')}>
+        ADD TO CART
+      </button>
     </div>
   )
 }
