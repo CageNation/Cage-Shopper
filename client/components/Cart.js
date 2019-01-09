@@ -15,7 +15,18 @@ class Cart extends Component {
     this.removeProduct = this.removeProduct.bind(this)
   }
 
-  removeProduct(index) {}
+  removeProduct(index) {
+    let products = [...this.state.cart]
+    console.log('PRODUCTS', products)
+    products.splice(index, 1)
+
+    localStorage.setItem('cart', JSON.stringify(products))
+
+    this.setState({
+      cart: [...products],
+      loading: false
+    })
+  }
 
   componentDidMount() {
     const items = localStorage.getItem('cart')
