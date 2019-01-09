@@ -12,6 +12,7 @@ const fromEuroToCent = amount => amount * 100
 
 const successPayment = data => {
   alert('Payment Successful')
+  localStorage.clear()
 }
 
 const errorPayment = data => {
