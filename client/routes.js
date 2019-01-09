@@ -11,7 +11,7 @@ import {
   Cart,
   Checkout
 } from './components'
-import {me} from './store'
+import {me, setCart} from './store'
 
 /**
  * COMPONENT
@@ -19,6 +19,13 @@ import {me} from './store'
 class Routes extends Component {
   componentDidMount() {
     this.props.loadInitialData()
+    const cart = JSON.parse(localStorage.getItem('cart'))
+    console.log(cart)
+    if (cart) {
+      this.props.loadCartsize(cart.length)
+    } else {
+      this.props.loadCartsize(0)
+    }
   }
 
   render() {
@@ -72,6 +79,9 @@ const mapDispatch = dispatch => {
   return {
     loadInitialData() {
       dispatch(me())
+    },
+    loadCartsize(length) {
+      dispatch(setCart(length))
     }
   }
 }

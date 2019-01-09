@@ -4,7 +4,7 @@ import {connect} from 'react-redux'
 import {Link} from 'react-router-dom'
 import {logout} from '../store'
 
-const Navbar = ({handleClick, isLoggedIn}) => (
+const Navbar = ({handleClick, isLoggedIn, cartSize}) => (
   <div>
     <h1>BOILERMAKER</h1>
     <nav>
@@ -27,7 +27,7 @@ const Navbar = ({handleClick, isLoggedIn}) => (
       <Link to="/landing">Home</Link>
       <Link to="/products">See our Products!</Link>
       <Link to="/users">Users List(TODO)</Link>
-      <Link to="/cart">Cart(TODO)</Link>
+      <Link to="/cart">{`CART(${cartSize})`}</Link>
     </nav>
     <hr />
   </div>
@@ -38,7 +38,8 @@ const Navbar = ({handleClick, isLoggedIn}) => (
  */
 const mapState = state => {
   return {
-    isLoggedIn: !!state.user.id
+    isLoggedIn: !!state.user.id,
+    cartSize: state.cart
   }
 }
 
