@@ -15,6 +15,7 @@ class LandingPage extends Component {
   }
 
   async componentDidMount() {
+    localStorage.clear()
     const {data: products} = await axios.get('/api/products')
     this.setState({
       products,
