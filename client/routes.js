@@ -20,7 +20,6 @@ class Routes extends Component {
   componentDidMount() {
     this.props.loadInitialData()
     const cart = JSON.parse(localStorage.getItem('cart'))
-    console.log(cart)
     if (cart) {
       this.props.loadCartsize(cart.length)
     } else {
