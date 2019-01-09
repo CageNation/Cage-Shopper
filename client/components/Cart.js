@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
+import CartList from './CartList'
 // import { connect } from 'react-redux'
-import axios from 'axios'
+// import axios from 'axios'
 // import { Link } from 'react-router-dom'
 
 //NOTE
@@ -14,16 +15,18 @@ class Cart extends Component {
       cart: [],
       loading: true
     }
+    this.removeProduct = this.removeProduct.bind(this)
   }
 
-  componentDidMount() {
-    //localStorage.setItem('cart', ['helloCart']);
+  removeProduct(index) {}
 
+  componentDidMount() {
     const items = localStorage.getItem('cart')
-    console.log(items)
+    const products = JSON.parse(items)
+    //console.log(products)
 
     this.setState({
-      cart: [...items],
+      cart: [...products],
       loading: false
     })
   }
@@ -35,10 +38,22 @@ class Cart extends Component {
       return (
         <ul>
           {this.state.cart.length ? (
-            this.state.cart.map(item => {
-              return item
-            })
+            <CartList
+              products={this.state.cart}
+              removeProduct={this.removeProduct}
+            />
           ) : (
+            // this.state.cart.map(item => {
+            //   return (
+            //     // <div>
+            //     //   <span>{item.name}</span>
+            //     //   <span>{item.description}</span>
+            //     //   <span>{item.price}</span>
+
+            //     // </div>
+
+            //   )
+            //})
             <h1>EMPTY CART</h1>
           )}
         </ul>
