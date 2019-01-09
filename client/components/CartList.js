@@ -17,7 +17,7 @@ class CartList extends Component {
         {products.map((item, idx) => {
           totalPrice += item.price
           return (
-            <div key={item.id}>
+            <div key={idx}>
               <span>{item.title}</span>
               <span>{item.description}</span>
               <span>{item.price}</span>
