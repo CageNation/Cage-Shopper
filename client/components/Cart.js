@@ -1,11 +1,5 @@
 import React, {Component} from 'react'
-// import { connect } from 'react-redux'
-import axios from 'axios'
-// import { Link } from 'react-router-dom'
-
-//NOTE
-// When using localStorage you can only use strings
-// In order to use arrays you have to use JSON.stringify() and JSON.parse()
+import CartList from './CartList'
 
 class Cart extends Component {
   constructor() {
@@ -14,16 +8,20 @@ class Cart extends Component {
       cart: [],
       loading: true
     }
+    this.removeProduct = this.removeProduct.bind(this)
   }
 
+  removeProduct(index) {}
+
   componentDidMount() {
-    //localStorage.setItem('cart', ['helloCart']);
-
     const items = localStorage.getItem('cart')
-    console.log(items)
 
+    let products = []
+    if (items) {
+      products = JSON.parse(items)
+    }
     this.setState({
-      cart: [...items],
+      cart: [...products],
       loading: false
     })
   }
@@ -35,9 +33,10 @@ class Cart extends Component {
       return (
         <ul>
           {this.state.cart.length ? (
-            this.state.cart.map(item => {
-              return item
-            })
+            <CartList
+              products={this.state.cart}
+              removeProduct={this.removeProduct}
+            />
           ) : (
             <h1>EMPTY CART</h1>
           )}
