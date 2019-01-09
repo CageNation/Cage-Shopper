@@ -21,13 +21,13 @@ class Cart extends Component {
 
   componentDidMount() {
     const items = localStorage.getItem('cart')
-    console.log(items)
-    let cart = []
+
+    let products = []
     if (items) {
-      cart = [...items]
+      products = JSON.parse(items)
     }
     this.setState({
-      cart,
+      cart: [...products],
       loading: false
     })
   }
