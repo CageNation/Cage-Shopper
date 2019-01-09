@@ -2,6 +2,7 @@ import React, {Component} from 'react'
 import {connect} from 'react-redux'
 import {withRouter, Route, Switch} from 'react-router-dom'
 import PropTypes from 'prop-types'
+<<<<<<< HEAD
 import {
   Login,
   Signup,
@@ -10,6 +11,9 @@ import {
   LandingPage,
   Cart
 } from './components'
+=======
+import {Login, Signup, UserHome, ProductList, Checkout} from './components'
+>>>>>>> Dev stripe functionality creating
 import {me} from './store'
 
 /**
@@ -28,8 +32,24 @@ class Routes extends Component {
         <Route path="/products" component={ProductList} />
         <Route path="/login" component={Login} />
         <Route path="/signup" component={Signup} />
+<<<<<<< HEAD
         <Route path="/landing" component={LandingPage} />
         <Route path="/cart" component={Cart} />
+=======
+        {/* figure out how to dynamically get name descript */}
+        <Route
+          path="/checkout"
+          render={props => (
+            <Checkout
+              {...props}
+              isAuthed={true}
+              name="Cage"
+              description="product"
+              amount={1}
+            />
+          )}
+        />
+>>>>>>> Dev stripe functionality creating
         {isLoggedIn && (
           <Switch>
             {/* Routes placed here are only available after logging in */}

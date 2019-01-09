@@ -7,7 +7,22 @@ const passport = require('passport')
 const SequelizeStore = require('connect-session-sequelize')(session.Store)
 const db = require('./db')
 const sessionStore = new SequelizeStore({db})
-const PORT = process.env.PORT || 8080
+
+// STRIPE STUFF
+const SERVER_CONFIGS = require('./constants/server')
+const cors = require('cors')
+const bodyParser = require('body-parser')
+
+const CORS_WHITELIST = require('./constants/frontend')
+
+const corsOptions = {
+  origin: (origin, callback) =>
+    CORS_WHITELIST.indexOf(origin) !== -1
+      ? callback(null, true)
+      : callback(new Error('Not allowed by CORS'))
+}
+// stripe new config ends here
+
 const app = express()
 const socketio = require('socket.io')
 module.exports = app
@@ -47,6 +62,10 @@ const createApp = () => {
   // body parsing middleware
   app.use(express.json())
   app.use(express.urlencoded({extended: true}))
+
+  // stripe middleware
+  // app.use(cors(corsOptions));
+  app.use(bodyParser.json())
 
   // compression middleware
   app.use(compression())
@@ -96,8 +115,8 @@ const createApp = () => {
 
 const startListening = () => {
   // start listening (and create a 'server' object representing our server)
-  const server = app.listen(PORT, () =>
-    console.log(`Mixing it up on port ${PORT}`)
+  const server = app.listen(SERVER_CONFIGS.PORT, () =>
+    console.log(`Mixing it up on port ${SERVER_CONFIGS.PORT}`)
   )
 
   // set up our socket control center

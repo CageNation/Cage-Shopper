@@ -6,7 +6,11 @@
 export {default as Navbar} from './navbar'
 export {default as UserHome} from './user-home'
 export {default as ProductList} from './ProductList'
+<<<<<<< HEAD
 export {default as LandingPage} from './LandingPage'
 export {default as Cart} from './Cart'
+=======
+export {default as Checkout} from './Checkout/Checkout'
+>>>>>>> Dev stripe functionality creating
 // export {ProductCard} from './ProductCard'
 export {Login, Signup} from './auth-form'
