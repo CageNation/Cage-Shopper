@@ -1,7 +1,9 @@
 const configureStripe = require('stripe')
 
 const STRIPE_SECRET_KEY =
-  process.env.NODE_ENV === 'production' ? 'sk_test' : 'sk_test'
+  process.env.NODE_ENV === 'production'
+    ? process.env.STRIPE_SECRET_KEY
+    : process.env.STRIPE_SECRET_KEY
 
 const stripe = configureStripe(STRIPE_SECRET_KEY)
 
