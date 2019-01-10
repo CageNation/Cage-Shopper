@@ -8,8 +8,7 @@ import {
   UserHome,
   ProductList,
   LandingPage,
-  Cart,
-  Checkout
+  Cart
 } from './components'
 import {me, setCart} from './store'
 
@@ -38,18 +37,6 @@ class Routes extends Component {
         <Route path="/landing" component={LandingPage} />
         <Route path="/cart" component={Cart} />
         {/* figure out how to dynamically get name descript */}
-        <Route
-          path="/checkout"
-          render={props => (
-            <Checkout
-              {...props}
-              isAuthed={true}
-              name="Cage"
-              description="product"
-              amount={1}
-            />
-          )}
-        />
         {isLoggedIn && (
           <Switch>
             {/* Routes placed here are only available after logging in */}
