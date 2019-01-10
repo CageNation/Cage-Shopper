@@ -14,6 +14,7 @@ class ProductList extends Component {
   }
 
   async componentDidMount() {
+    // OB/LM: consider error handling
     const {data: products} = await axios.get('/api/products')
     this.setState({
       products,

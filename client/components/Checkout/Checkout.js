@@ -15,9 +15,11 @@ const successPayment = data => {
 }
 
 const errorPayment = data => {
+  // OB/LM: consider "toast" notification instead (e.g. using react-toastr: https://seesparkbox.com/foundry/semantic_commit_messages)
   alert('Payment Error')
 }
 
+// OB/LM: could use async / await below
 const onToken = (amount, description) => token =>
   axios
     .post(PAYMENT_SERVER_URL, {
