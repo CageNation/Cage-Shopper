@@ -34,9 +34,4 @@ router.get('/:id', async (req, res, next) => {
 })
 
 // add an item to the users 'cart'
-router.put('/:id/sync_cart', async (req, res, next) => {
-  try {
-  } catch (error) {
-    next(error)
-  }
-})
+router.put('/:id/sync_cart', async (req, res, next) => {})

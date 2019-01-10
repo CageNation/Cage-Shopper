@@ -16,6 +16,7 @@ export const CartList = props => {
             <Table.HeaderCell>Name</Table.HeaderCell>
             <Table.HeaderCell>Description</Table.HeaderCell>
             <Table.HeaderCell>Price</Table.HeaderCell>
+            <Table.HeaderCell />
           </Table.Row>
         </Table.Header>
         <Table.Body>
@@ -26,6 +27,9 @@ export const CartList = props => {
                 <Table.Cell>{item.name}</Table.Cell>
                 <Table.Cell>{item.description}</Table.Cell>
                 <Table.Cell>{(item.price / 100).toFixed(2)}</Table.Cell>
+                <Table.Cell>
+                  <Button onClick={() => removeProduct(idx)}>X</Button>
+                </Table.Cell>
               </Table.Row>
             )
           })}
@@ -37,6 +41,7 @@ export const CartList = props => {
             </Table.HeaderCell>
             <Table.HeaderCell />
             <Table.HeaderCell>{(totalPrice / 100).toFixed(2)}</Table.HeaderCell>
+            <Table.HeaderCell />
           </Table.Row>
         </Table.Footer>
       </Table>
