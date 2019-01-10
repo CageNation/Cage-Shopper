@@ -2,6 +2,9 @@ const router = require('express').Router()
 const {User, Order} = require('../db/models')
 module.exports = router
 
+// /api/users api routes
+
+// get ALL users
 router.get('/', async (req, res, next) => {
   try {
     const users = await User.findAll({
@@ -16,6 +19,7 @@ router.get('/', async (req, res, next) => {
   }
 })
 
+// get an individual user by their ID, eager load their saved cart
 router.get('/:id', async (req, res, next) => {
   try {
     const user = await User.findOne({
@@ -24,6 +28,14 @@ router.get('/:id', async (req, res, next) => {
       attributes: ['id', 'email']
     })
     res.json(user)
+  } catch (error) {
+    next(error)
+  }
+})
+
+// add an item to the users 'cart'
+router.put('/:id/sync_cart', async (req, res, next) => {
+  try {
   } catch (error) {
     next(error)
   }
