@@ -1,8 +1,6 @@
 import React from 'react'
 import {clearCart, setCart} from '../store'
 import {connect} from 'react-redux'
-// import PropTypes from 'prop-types'
-// import {Link} from 'react-router-dom'
 
 const addToCart = (product, setCartSize) => {
   const currentItems = JSON.parse(localStorage.getItem('cart'))
@@ -28,7 +26,7 @@ const ProductCard = props => {
       <p>{`product name: ${product.name}`}</p>
       <img src={product.imageUrl} />
       <p>{`description: ${product.description}`}</p>
-      <h3>{`price: ${product.price}`}</h3>
+      <h3>{`price: ${(product.price / 100).toFixed(2)}`}</h3>
       <button type="submit" onClick={() => addToCart(product, setCartSize)}>
         ADD TO CART
       </button>

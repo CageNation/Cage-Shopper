@@ -10,7 +10,7 @@ const empty = 0
 //ACTION CREATORS:
 
 export const setCart = length => ({type: SET_CART, length})
-export const clearCart = () => ({type: SET_CART})
+export const clearCart = () => ({type: CLEAR_CART})
 
 // REDUCER:
 

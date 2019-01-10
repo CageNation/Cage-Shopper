@@ -1,5 +1,7 @@
 import React, {Component} from 'react'
+import {connect} from 'react-redux'
 import CartList from './CartList'
+import {clearCart, setCart} from '../store'
 
 //NOTE
 // When using localStorage you can only use strings
@@ -13,18 +15,25 @@ class Cart extends Component {
       loading: true
     }
     this.removeProduct = this.removeProduct.bind(this)
+    this.clearCart = this.clearCart.bind(this)
   }
 
   removeProduct(index) {
     let products = [...this.state.cart]
-    console.log('PRODUCTS', products)
     products.splice(index, 1)
-
     localStorage.setItem('cart', JSON.stringify(products))
-
+    this.props.setCartSize(products.length)
     this.setState({
       cart: [...products],
       loading: false
+    })
+  }
+
+  clearCart() {
+    localStorage.clear()
+    this.props.emptyCart()
+    this.setState({
+      cart: []
     })
   }
 
@@ -51,6 +60,7 @@ class Cart extends Component {
             <CartList
               products={this.state.cart}
               removeProduct={this.removeProduct}
+              clearCart={this.clearCart}
             />
           ) : (
             <h1>EMPTY CART</h1>
@@ -61,4 +71,15 @@ class Cart extends Component {
   }
 }
 
-export default Cart
+const mapDispatch = dispatch => {
+  return {
+    emptyCart() {
+      dispatch(clearCart())
+    },
+    setCartSize(length) {
+      dispatch(setCart(length))
+    }
+  }
+}
+
+export default connect(null, mapDispatch)(Cart)
