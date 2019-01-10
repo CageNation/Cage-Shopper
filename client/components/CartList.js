@@ -1,5 +1,6 @@
 import React from 'react'
 import Checkout from './Checkout/Checkout'
+import {Button} from 'semantic-ui-react'
 
 //NOTE
 // When using localStorage you can only use strings
@@ -32,6 +33,7 @@ export const CartList = props => {
         description="Cage Match Checkout"
         amount={totalPrice}
       />
+      <Button>Click Here TEST</Button>
     </div>
   )
 }
