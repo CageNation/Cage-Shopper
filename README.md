@@ -2,7 +2,7 @@
 
 # COMMIT MESSAGE FORMAT
 
-feat: add hat wobble
+feat: add hat wobble Closes:#<issueNumber>
 ^--^ ^------------^
 | |
 | +-> Summary in present tense.
