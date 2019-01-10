@@ -1,6 +1,6 @@
 import React from 'react'
 import Checkout from './Checkout/Checkout'
-import {Button} from 'semantic-ui-react'
+import {Button, Table} from 'semantic-ui-react'
 
 //NOTE
 // When using localStorage you can only use strings
@@ -10,22 +10,37 @@ export const CartList = props => {
   let totalPrice = 0
   return (
     <div>
-      {products.map((item, idx) => {
-        totalPrice += item.price
-        return (
-          <div key={idx}>
-            <span>{item.title}</span>
-            <span>{item.description}</span>
-            <span>{(item.price / 100).toFixed(2)}</span>
-            <span>QTY 1</span>
-            <button onClick={() => removeProduct(idx)}>Remove Item</button>
-            <br />
-          </div>
-        )
-      })}
-      <p>-----------------</p>
-      <p>Total Price: {(totalPrice / 100).toFixed(2)}</p>
-      <button onClick={() => clearCart()}>CLEAR CART</button>
+      <Table size="large">
+        <Table.Header>
+          <Table.Row>
+            <Table.HeaderCell>Name</Table.HeaderCell>
+            <Table.HeaderCell>Description</Table.HeaderCell>
+            <Table.HeaderCell>Price</Table.HeaderCell>
+          </Table.Row>
+        </Table.Header>
+        <Table.Body>
+          {products.map((item, idx) => {
+            totalPrice += item.price
+            return (
+              <Table.Row key={idx}>
+                <Table.Cell>{item.name}</Table.Cell>
+                <Table.Cell>{item.description}</Table.Cell>
+                <Table.Cell>{(item.price / 100).toFixed(2)}</Table.Cell>
+              </Table.Row>
+            )
+          })}
+        </Table.Body>
+        <Table.Footer>
+          <Table.Row>
+            <Table.HeaderCell>
+              <b>Total Price</b>
+            </Table.HeaderCell>
+            <Table.HeaderCell />
+            <Table.HeaderCell>{(totalPrice / 100).toFixed(2)}</Table.HeaderCell>
+          </Table.Row>
+        </Table.Footer>
+      </Table>
+      <Button onClick={() => clearCart()}>CLEAR CART</Button>
       <Checkout
         {...props}
         isAuthed={true}
@@ -33,7 +48,6 @@ export const CartList = props => {
         description="Cage Match Checkout"
         amount={totalPrice}
       />
-      <Button>Click Here TEST</Button>
     </div>
   )
 }
