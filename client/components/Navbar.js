@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import {connect} from 'react-redux'
-import {Link} from 'react-router-dom'
+import {Link, NavLink, withRouter} from 'react-router-dom'
 import {logout} from '../store'
 
 import {Button, Container, Menu, Visibility, Segment} from 'semantic-ui-react'
@@ -42,24 +42,24 @@ class Navbar extends React.Component {
               size="large"
             >
               <Container>
-                <Menu.Item as="a" active>
-                  <Link to="/landing">Home</Link>
+                <Menu.Item as={NavLink} exact to="/landing">
+                  Home
                 </Menu.Item>
-                <Menu.Item as="a">
-                  <Link to="/products">See our Products!</Link>
+                <Menu.Item as={NavLink} exact to="/products">
+                  See our Products!
                 </Menu.Item>
-                <Menu.Item as="a">
-                  <Link to="/cart">
-                    <i className="shopping cart icon" />
-                    {cartSize}
-                  </Link>
+                <Menu.Item as={NavLink} exact to="/cart">
+                  <i className="shopping cart icon" />
+                  {cartSize}
                 </Menu.Item>
                 <Menu.Item position="right">
                   {isLoggedIn ? (
                     <React.Fragment>
                       <Button as="a" inverted={!fixed}>
                         {/* The navbar will show these links after you log in */}
-                        <Link to="/home">Account Page</Link>
+                        <Link exact to="/home">
+                          Account Page
+                        </Link>
                       </Button>
                       <Button
                         as="a"
@@ -76,7 +76,9 @@ class Navbar extends React.Component {
                     <div>
                       {/* The navbar will show these links before you log in */}
                       <Button as="a" inverted={!fixed}>
-                        <Link to="/login">Login</Link>
+                        <Link exact to="/login">
+                          Login
+                        </Link>
                       </Button>
                       <Button
                         as="a"
@@ -84,7 +86,9 @@ class Navbar extends React.Component {
                         primary={fixed}
                         style={{marginLeft: '0.5em'}}
                       >
-                        <Link to="/signup">Sign Up</Link>
+                        <Link exact to="/signup">
+                          Sign Up
+                        </Link>
                       </Button>
                     </div>
                   )}
@@ -116,7 +120,7 @@ const mapDispatch = dispatch => {
   }
 }
 
-export default connect(mapState, mapDispatch)(Navbar)
+export default withRouter(connect(mapState, mapDispatch)(Navbar))
 
 /**
  * PROP TYPES
