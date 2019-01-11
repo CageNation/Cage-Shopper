@@ -49,10 +49,10 @@ class Navbar extends React.Component {
                   <Link to="/products">See our Products!</Link>
                 </Menu.Item>
                 <Menu.Item as="a">
-                  <Link to="/users">Users List(TODO)</Link>
-                </Menu.Item>
-                <Menu.Item as="a">
-                  <Link to="/cart">{`CART(${cartSize})`}</Link>
+                  <Link to="/cart">
+                    <i className="shopping cart icon" />
+                    {cartSize}
+                  </Link>
                 </Menu.Item>
                 <Menu.Item position="right">
                   {isLoggedIn ? (
