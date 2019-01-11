@@ -55,17 +55,6 @@ class Navbar extends React.Component {
                   <Link to="/cart">{`CART(${cartSize})`}</Link>
                 </Menu.Item>
                 <Menu.Item position="right">
-                  {/* <Button as="a" inverted={!fixed}>
-            Log in
-          </Button>
-          <Button
-            as="a"
-            inverted={!fixed}
-            primary={fixed}
-            style={{marginLeft: '0.5em'}}
-          >
-            Sign Up
-          </Button> */}
                   {isLoggedIn ? (
                     <React.Fragment>
                       <Button as="a" inverted={!fixed}>
@@ -104,24 +93,6 @@ class Navbar extends React.Component {
             </Menu>
           </Segment>
         </Visibility>
-        <nav>
-          {isLoggedIn ? (
-            <div>
-              {/* The navbar will show these links after you log in */}
-              <Link to="/home">Account Page</Link>
-              <a href="#" onClick={handleClick}>
-                Logout
-              </a>
-            </div>
-          ) : (
-            <div>
-              {/* The navbar will show these links before you log in */}
-              <Link to="/login">Login</Link>
-              <Link to="/signup">Sign Up</Link>
-            </div>
-          )}
-        </nav>
-        <hr />
       </div>
     )
   }
