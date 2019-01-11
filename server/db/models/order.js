@@ -11,6 +11,10 @@ const Order = db.define(
     orderData: {
       type: Sequelize.TEXT,
       allowNull: false
+    },
+    completed: {
+      type: Sequelize.BOOLEAN,
+      defaultValue: false
     }
   },
   {
