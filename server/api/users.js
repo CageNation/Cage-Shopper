@@ -51,14 +51,15 @@ router.get('/:id/cart', async (req, res, next) => {
 // update users cart with new one from req.body
 router.put('/:id/cart', async (req, res, next) => {
   try {
-    const cart = await Order.findOrCreate({
+    const cart = await Order.findOne({
       where: {
         ordererId: req.params.id,
         completed: false
       }
     })
+    const newCart = JSON.stringify(req.body.products)
     await cart.update({
-      orderDetails: req.body.order,
+      orderData: newCart,
       completed: !!req.body.completed
     })
     res.sendStatus(204)

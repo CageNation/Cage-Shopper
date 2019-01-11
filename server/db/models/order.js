@@ -6,11 +6,13 @@ const Order = db.define(
   {
     total: {
       type: Sequelize.INTEGER,
-      allowNull: false
+      allowNull: false,
+      defaultValue: 0
     },
     orderData: {
       type: Sequelize.TEXT,
-      allowNull: false
+      allowNull: false,
+      defaultValue: '[]'
     },
     completed: {
       type: Sequelize.BOOLEAN,
