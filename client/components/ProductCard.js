@@ -1,21 +1,19 @@
 import React from 'react'
 import {clearCart, setCart} from '../store'
 import {connect} from 'react-redux'
+// import axios from 'axios'
 
-const addToCart = (product, setCartSize) => {
+const addToCart = async (product, setCartSize) => {
   const currentItems = JSON.parse(localStorage.getItem('cart'))
-  console.log(currentItems)
-
+  let products = []
   if (currentItems === null) {
-    const products = [product]
+    products = [product]
     setCartSize(1)
     localStorage.setItem('cart', JSON.stringify(products))
-    console.log(products)
   } else {
-    const products = [...currentItems, product]
+    products = [...currentItems, product]
     setCartSize(products.length)
     localStorage.setItem('cart', JSON.stringify(products))
-    console.log(products)
   }
 }
 
