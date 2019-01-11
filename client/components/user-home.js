@@ -6,11 +6,11 @@ import {connect} from 'react-redux'
  * COMPONENT
  */
 export const UserHome = props => {
-  const {email} = props
+  const {user} = props
 
   return (
     <div>
-      <h3>Welcome, {email}</h3>
+      <h3>Welcome, {user.email}</h3>
       <h4>
         This is your personal account page. Too bad there's nothing for you to
         do here :(
@@ -24,7 +24,7 @@ export const UserHome = props => {
  */
 const mapState = state => {
   return {
-    email: state.user.email
+    user: state.user
   }
 }
 
