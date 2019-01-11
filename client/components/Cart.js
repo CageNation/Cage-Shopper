@@ -71,6 +71,12 @@ class Cart extends Component {
   }
 }
 
+const mapState = state => {
+  return {
+    isLoggedIn: !!state.user.id
+  }
+}
+
 const mapDispatch = dispatch => {
   return {
     emptyCart() {

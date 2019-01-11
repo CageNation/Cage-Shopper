@@ -32,6 +32,7 @@ router.get('/:id', async (req, res, next) => {
   }
 })
 
+// get users cart
 router.get('/:id/cart', async (req, res, next) => {
   try {
     const cart = await Order.findOne({
@@ -42,6 +43,25 @@ router.get('/:id/cart', async (req, res, next) => {
       attributes: ['orderData']
     })
     res.json(cart)
+  } catch (error) {
+    next(error)
+  }
+})
+
+// update users cart with new one from req.body
+router.put('/:id/cart', async (req, res, next) => {
+  try {
+    const cart = await Order.findOrCreate({
+      where: {
+        ordererId: req.params.id,
+        completed: false
+      }
+    })
+    await cart.update({
+      orderDetails: req.body.order,
+      completed: !!req.body.completed
+    })
+    res.sendStatus(204)
   } catch (error) {
     next(error)
   }
