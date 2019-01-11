@@ -1,10 +1,11 @@
 import React from 'react'
 import {clearCart, setCart} from '../store'
 import {connect} from 'react-redux'
-// import axios from 'axios'
+import axios from 'axios'
 
-const addToCart = async (product, setCartSize) => {
+const addToCart = async (product, setCartSize, user) => {
   const currentItems = JSON.parse(localStorage.getItem('cart'))
+
   let products = []
   if (currentItems === null) {
     products = [product]
@@ -15,21 +16,33 @@ const addToCart = async (product, setCartSize) => {
     setCartSize(products.length)
     localStorage.setItem('cart', JSON.stringify(products))
   }
+  if (user.id) {
+    await axios.put(`/api/users/${user.id}/cart`, {products})
+  }
 }
 
 const ProductCard = props => {
-  const {product, setCartSize} = props
+  const {product, setCartSize, user} = props
   return (
     <div className="productCard">
       <p>{`product name: ${product.name}`}</p>
       <img src={product.imageUrl} />
       <p>{`description: ${product.description}`}</p>
       <h3>{`price: ${(product.price / 100).toFixed(2)}`}</h3>
-      <button type="submit" onClick={() => addToCart(product, setCartSize)}>
+      <button
+        type="submit"
+        onClick={() => addToCart(product, setCartSize, user)}
+      >
         ADD TO CART
       </button>
     </div>
   )
+}
+
+const mapState = state => {
+  return {
+    user: state.user
+  }
 }
 
 const mapDispatch = dispatch => {
@@ -43,4 +56,4 @@ const mapDispatch = dispatch => {
   }
 }
 
-export default connect(null, mapDispatch)(ProductCard)
+export default connect(mapState, mapDispatch)(ProductCard)
