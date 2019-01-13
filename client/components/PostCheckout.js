@@ -1,7 +1,8 @@
 import React, {Component} from 'react'
 import axios from 'axios'
 import {connect} from 'react-redux'
-import {clearCart} from '../store'
+import {clearCart, setSuccess} from '../store'
+import history from '../history'
 
 /*
 - clear local storage cart
@@ -17,24 +18,31 @@ class PostCheckout extends Component {
     super()
   }
   async componentDidMount() {
-    const id = this.props.userId
-    console.log('id:', id)
-    let products = localStorage.getItem('cart')
-    this.props.emptyCart()
-    localStorage.clear()
-    try {
-      if (id) {
-        await axios.put(`/api/users/${id}/cart`, {products, completed: true})
-        await axios.post(`/api/users/${id}/cart`)
-      } else {
-        await axios.post(`/api/users/guestCheckout`, {
-          orderData: products,
-          completed: true,
-          userId: null
-        })
+    const {userId, checkoutStatus, emptyCart, toggleSuccess} = this.props
+    if (checkoutStatus) {
+      let products = localStorage.getItem('cart')
+      emptyCart()
+      localStorage.clear()
+      try {
+        if (userId) {
+          await axios.put(`/api/users/${userId}/cart`, {
+            products,
+            completed: true
+          })
+          await axios.post(`/api/users/${userId}/cart`)
+        } else {
+          await axios.post(`/api/users/guestCheckout`, {
+            orderData: products,
+            completed: true,
+            userId: null
+          })
+        }
+      } catch (error) {
+        console.error('Postcheckout error: \n', error)
       }
-    } catch (error) {
-      console.error('Postcheckout error: \n', error)
+      toggleSuccess(false)
+    } else {
+      history.push('/cart')
     }
   }
 
@@ -49,7 +57,8 @@ class PostCheckout extends Component {
 
 const mapState = state => {
   return {
-    userId: state.user.id
+    userId: state.user.id,
+    checkoutStatus: state.checkout
   }
 }
 
@@ -57,6 +66,9 @@ const mapDispatch = dispatch => {
   return {
     emptyCart() {
       dispatch(clearCart())
+    },
+    toggleSuccess(status) {
+      dispatch(setSuccess(status))
     }
   }
 }
