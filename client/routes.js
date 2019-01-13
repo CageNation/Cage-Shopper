@@ -9,7 +9,8 @@ import {
   ProductList,
   LandingPage,
   Cart,
-  HomePage
+  HomePage,
+  PostCheckout
 } from './components'
 import {me, setCart} from './store'
 
@@ -38,6 +39,8 @@ class Routes extends Component {
         <Route path="/landing" component={LandingPage} />
         <Route path="/cart" component={Cart} />
         <Route path="/newhomepage" component={HomePage} />
+        <Route path="/postcheckout" component={PostCheckout} />
+        <Route path="/" component={LandingPage} />
         {/* figure out how to dynamically get name descript */}
         {isLoggedIn && (
           <Switch>
