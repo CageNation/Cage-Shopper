@@ -11,7 +11,7 @@ const CURRENCY = 'USD'
 const fromEuroToCent = amount => amount * 100
 
 const successPayment = data => {
-  history.push('/landing')
+  history.push('/postcheckout')
 }
 
 const errorPayment = data => {
