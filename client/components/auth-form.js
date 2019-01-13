@@ -47,42 +47,27 @@ const AuthForm = props => {
               <Button type="submit" fluid size="large">
                 {displayName}
               </Button>
-              <a href="/auth/google">
-                <Button color="google plus">
-                  <Icon name="google plus" /> Sign in with Google+
-                </Button>
-              </a>
             </Segment>
           </Form>
-          {error && error.response && <div> {error.response.data} </div>}
+          <a href="/auth/google">
+            <Button color="google plus" floated="left">
+              <Icon name="google plus" /> {displayName} with Google+
+            </Button>
+          </a>
+          {error &&
+            error.response && (
+              <div>
+                <Message
+                  error
+                  header={`${displayName} failed`}
+                  content={error.response.data}
+                />
+              </div>
+            )}
         </Grid.Column>
       </Grid>
     </div>
   )
-
-  // return (
-  //   <div>
-  //     <form onSubmit={handleSubmit} name={name}>
-  //       <div>
-  //         <label htmlFor="email">
-  //           <small>Email</small>
-  //         </label>
-  //         <input name="email" type="text" />
-  //       </div>
-  //       <div>
-  //         <label htmlFor="password">
-  //           <small>Password</small>
-  //         </label>
-  //         <input name="password" type="password" />
-  //       </div>
-  //       <div>
-  //         <button type="submit">{displayName}</button>
-  //       </div>
-  //       {error && error.response && <div> {error.response.data} </div>}
-  //     </form>
-  //     <a href="/auth/google">{displayName} with Google</a>
-  //   </div>
-  // )
 }
 
 /**
