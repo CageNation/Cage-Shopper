@@ -15,10 +15,10 @@ nav a {
   margin: 1em;
 }
 
-form div {
+/* form div {
   margin: 1em;
   display: inline-block;
-}
+} */
 
 .product-card {
   padding-top: 50px;
@@ -28,4 +28,10 @@ form div {
   width: 100%;
   padding-left: 40px;
   padding-right: 40px;
+}
+
+body > div,
+body > div > div,
+body > div > div > div.auth-form {
+  height: 100%;
 }

@@ -2,7 +2,16 @@ import React from 'react'
 import {connect} from 'react-redux'
 import PropTypes from 'prop-types'
 import {auth} from '../store'
-import {Button, Checkbox, Form} from 'semantic-ui-react'
+import {
+  Button,
+  Form,
+  Grid,
+  Header,
+  Image,
+  Message,
+  Segment,
+  Icon
+} from 'semantic-ui-react'
 
 /**
  * COMPONENT
@@ -10,46 +19,70 @@ import {Button, Checkbox, Form} from 'semantic-ui-react'
 const AuthForm = props => {
   const {name, displayName, handleSubmit, error} = props
 
-  // return(
-  //   <Form>
-  //   <Form.Field>
-  //     <label>First Name</label>
-  //     <input placeholder='First Name' />
-  //   </Form.Field>
-  //   <Form.Field>
-  //     <label>Last Name</label>
-  //     <input placeholder='Last Name' />
-  //   </Form.Field>
-  //   <Form.Field>
-  //     <Checkbox label='I agree to the Terms and Conditions' />
-  //   </Form.Field>
-  //   <Button type='submit'>Submit</Button>
-  // </Form>
-  // )
-
   return (
-    <div>
-      <form onSubmit={handleSubmit} name={name}>
-        <div>
-          <label htmlFor="email">
-            <small>Email</small>
-          </label>
-          <input name="email" type="text" />
-        </div>
-        <div>
-          <label htmlFor="password">
-            <small>Password</small>
-          </label>
-          <input name="password" type="password" />
-        </div>
-        <div>
-          <button type="submit">{displayName}</button>
-        </div>
-        {error && error.response && <div> {error.response.data} </div>}
-      </form>
-      <a href="/auth/google">{displayName} with Google</a>
+    <div className="auth-form">
+      <Grid textAlign="center" style={{height: '100%'}} verticalAlign="middle">
+        <Grid.Column style={{maxWidth: 450}}>
+          <Header as="h2" color="teal" textAlign="center">
+            <Image src="https://images-na.ssl-images-amazon.com/images/I/61Wo915nuTL._SX425_.jpg" />{' '}
+            {displayName} to your account
+          </Header>
+          <Form onSubmit={handleSubmit} name={name}>
+            <Segment stacked>
+              <Form.Input
+                fluid
+                icon="user"
+                iconPosition="left"
+                placeholder="E-mail address"
+                name="email"
+              />
+              <Form.Input
+                fluid
+                icon="lock"
+                iconPosition="left"
+                placeholder="Password"
+                type="password"
+                name="password"
+              />
+              <Button type="submit" fluid size="large">
+                {displayName}
+              </Button>
+              <a href="/auth/google">
+                <Button color="google plus">
+                  <Icon name="google plus" /> Sign in with Google+
+                </Button>
+              </a>
+            </Segment>
+          </Form>
+          {error && error.response && <div> {error.response.data} </div>}
+        </Grid.Column>
+      </Grid>
     </div>
   )
+
+  // return (
+  //   <div>
+  //     <form onSubmit={handleSubmit} name={name}>
+  //       <div>
+  //         <label htmlFor="email">
+  //           <small>Email</small>
+  //         </label>
+  //         <input name="email" type="text" />
+  //       </div>
+  //       <div>
+  //         <label htmlFor="password">
+  //           <small>Password</small>
+  //         </label>
+  //         <input name="password" type="password" />
+  //       </div>
+  //       <div>
+  //         <button type="submit">{displayName}</button>
+  //       </div>
+  //       {error && error.response && <div> {error.response.data} </div>}
+  //     </form>
+  //     <a href="/auth/google">{displayName} with Google</a>
+  //   </div>
+  // )
 }
 
 /**
