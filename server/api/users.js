@@ -58,13 +58,13 @@ router.put('/:id/cart', async (req, res, next) => {
         completed: false
       }
     })
-    newCart = JSON.stringify(req.body.products)
     await cart.update({
-      orderData: newCart,
+      orderData: req.body.products,
       completed: !!req.body.completed
     })
     res.sendStatus(201)
   } catch (error) {
+    console.log('PUT CART ERROR')
     next(error)
   }
 })
@@ -74,6 +74,7 @@ router.post('/:id/cart', async (req, res, next) => {
     await Order.create({userId: req.params.id})
     res.sendStatus(201)
   } catch (error) {
+    console.log('POST CART ERROR')
     next(error)
   }
 })
