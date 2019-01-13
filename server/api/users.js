@@ -24,6 +24,7 @@ router.get('/:id', async (req, res, next) => {
   try {
     const user = await User.findOne({
       where: {id: req.params.id},
+      include: [{model: Order, where: {userId: req.params.id}}],
       attributes: ['id', 'email']
     })
     res.json(user)
@@ -37,7 +38,7 @@ router.get('/:id/cart', async (req, res, next) => {
   try {
     const cart = await Order.findOne({
       where: {
-        ordererId: req.params.id,
+        userId: req.params.id,
         completed: false
       },
       attributes: ['orderData']
@@ -53,7 +54,7 @@ router.put('/:id/cart', async (req, res, next) => {
   try {
     const cart = await Order.findOne({
       where: {
-        ordererId: req.params.id,
+        userId: req.params.id,
         completed: false
       }
     })
@@ -70,7 +71,7 @@ router.put('/:id/cart', async (req, res, next) => {
 
 router.post('/:id/cart', async (req, res, next) => {
   try {
-    await Order.create({ordererId: req.params.id})
+    await Order.create({userId: req.params.id})
   } catch (error) {
     next(error)
   }

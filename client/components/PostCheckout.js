@@ -22,8 +22,8 @@ class PostCheckout extends Component {
     this.props.emptyCart()
     localStorage.clear()
     try {
-      await axios.put(`/api/users/3/cart`, {products, completed: true})
-      await axios.post(`/api/users/3/cart`)
+      await axios.put(`/api/users/1/cart`, {products, completed: true})
+      await axios.post(`/api/users/1/cart`)
     } catch (error) {
       console.error('Postcheckout error: \n', error)
     }
