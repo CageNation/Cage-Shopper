@@ -18,12 +18,21 @@ class PostCheckout extends Component {
   }
   async componentDidMount() {
     const id = this.props.userId
-    const products = localStorage.getItem('cart')
+    console.log('id:', id)
+    let products = localStorage.getItem('cart')
     this.props.emptyCart()
     localStorage.clear()
     try {
-      await axios.put(`/api/users/1/cart`, {products, completed: true})
-      await axios.post(`/api/users/1/cart`)
+      if (id) {
+        await axios.put(`/api/users/${id}/cart`, {products, completed: true})
+        await axios.post(`/api/users/${id}/cart`)
+      } else {
+        await axios.post(`/api/users/guestCheckout`, {
+          orderData: products,
+          completed: true,
+          userId: null
+        })
+      }
     } catch (error) {
       console.error('Postcheckout error: \n', error)
     }

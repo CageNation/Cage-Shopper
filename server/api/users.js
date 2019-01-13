@@ -63,7 +63,7 @@ router.put('/:id/cart', async (req, res, next) => {
       orderData: newCart,
       completed: !!req.body.completed
     })
-    res.sendStatus(204)
+    res.sendStatus(201)
   } catch (error) {
     next(error)
   }
@@ -72,6 +72,16 @@ router.put('/:id/cart', async (req, res, next) => {
 router.post('/:id/cart', async (req, res, next) => {
   try {
     await Order.create({userId: req.params.id})
+    res.sendStatus(201)
+  } catch (error) {
+    next(error)
+  }
+})
+
+router.post('/guestCheckout', async (req, res, next) => {
+  try {
+    await Order.create(req.body)
+    res.sendStatus(201)
   } catch (error) {
     next(error)
   }
