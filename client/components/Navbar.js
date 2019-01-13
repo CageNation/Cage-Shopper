@@ -55,12 +55,12 @@ class Navbar extends React.Component {
                 <Menu.Item position="right">
                   {isLoggedIn ? (
                     <React.Fragment>
-                      <Button as="a" inverted={!fixed}>
-                        {/* The navbar will show these links after you log in */}
-                        <Link exact to="/home">
+                      <Link exact to="/home">
+                        <Button as="a" inverted={!fixed}>
+                          {/* The navbar will show these links after you log in */}
                           Account Page
-                        </Link>
-                      </Button>
+                        </Button>
+                      </Link>
                       <Button
                         as="a"
                         inverted={!fixed}
@@ -75,21 +75,21 @@ class Navbar extends React.Component {
                   ) : (
                     <div>
                       {/* The navbar will show these links before you log in */}
-                      <Button as="a" inverted={!fixed}>
-                        <Link exact to="/login">
+                      <Link exact to="/login">
+                        <Button as="a" inverted={!fixed}>
                           Login
-                        </Link>
-                      </Button>
-                      <Button
-                        as="a"
-                        inverted={!fixed}
-                        primary={fixed}
-                        style={{marginLeft: '0.5em'}}
-                      >
-                        <Link exact to="/signup">
+                        </Button>
+                      </Link>
+                      <Link exact to="/signup">
+                        <Button
+                          as="a"
+                          inverted={!fixed}
+                          primary={fixed}
+                          style={{marginLeft: '0.5em'}}
+                        >
                           Sign Up
-                        </Link>
-                      </Button>
+                        </Button>
+                      </Link>
                     </div>
                   )}
                 </Menu.Item>
