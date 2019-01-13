@@ -24,6 +24,7 @@ router.get('/:id', async (req, res, next) => {
   try {
     const user = await User.findOne({
       where: {id: req.params.id},
+      include: [{model: Order, where: {userId: req.params.id}}],
       attributes: ['id', 'email']
     })
     res.json(user)
@@ -37,7 +38,7 @@ router.get('/:id/cart', async (req, res, next) => {
   try {
     const cart = await Order.findOne({
       where: {
-        ordererId: req.params.id,
+        userId: req.params.id,
         completed: false
       },
       attributes: ['orderData']
@@ -53,16 +54,35 @@ router.put('/:id/cart', async (req, res, next) => {
   try {
     const cart = await Order.findOne({
       where: {
-        ordererId: req.params.id,
+        userId: req.params.id,
         completed: false
       }
     })
-    const newCart = JSON.stringify(req.body.products)
     await cart.update({
-      orderData: newCart,
+      orderData: req.body.products,
       completed: !!req.body.completed
     })
-    res.sendStatus(204)
+    res.sendStatus(201)
+  } catch (error) {
+    console.log('PUT CART ERROR')
+    next(error)
+  }
+})
+
+router.post('/:id/cart', async (req, res, next) => {
+  try {
+    await Order.create({userId: req.params.id})
+    res.sendStatus(201)
+  } catch (error) {
+    console.log('POST CART ERROR')
+    next(error)
+  }
+})
+
+router.post('/guestCheckout', async (req, res, next) => {
+  try {
+    await Order.create(req.body)
+    res.sendStatus(201)
   } catch (error) {
     next(error)
   }

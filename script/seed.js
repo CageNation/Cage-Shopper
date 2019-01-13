@@ -13,8 +13,8 @@ async function seed() {
   ])
 
   const carts = await Promise.all([
-    Order.create({ordererId: 1}),
-    Order.create({ordererId: 2})
+    Order.create({userId: 1}),
+    Order.create({userId: 2})
   ])
 
   const products = await Promise.all([
