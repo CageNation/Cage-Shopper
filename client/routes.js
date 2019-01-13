@@ -40,16 +40,16 @@ class Routes extends Component {
         <Route path="/cart" component={Cart} />
         <Route path="/newhomepage" component={HomePage} />
         <Route path="/postcheckout" component={PostCheckout} />
-        <Route path="/" component={LandingPage} />
         {/* figure out how to dynamically get name descript */}
         {isLoggedIn && (
           <Switch>
             {/* Routes placed here are only available after logging in */}
-            <Route path="/home" component={UserHome} />
+            <Route exact path="/home" component={UserHome} />
           </Switch>
         )}
         {/* Displays our Login component as a fallback */}
         <Route component={Login} />
+        <Route path="/" component={LandingPage} />
       </Switch>
     )
   }
