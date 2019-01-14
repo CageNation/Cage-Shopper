@@ -1,6 +1,7 @@
 import React from 'react'
 import Checkout from './Checkout/Checkout'
 import {Button, Table} from 'semantic-ui-react'
+import ReactHtmlParser from 'react-html-parser'
 
 //NOTE
 // When using localStorage you can only use strings
@@ -25,7 +26,7 @@ export const CartList = props => {
             return (
               <Table.Row key={idx}>
                 <Table.Cell>{item.name}</Table.Cell>
-                <Table.Cell>{item.description}</Table.Cell>
+                <Table.Cell>{ReactHtmlParser(item.description)}</Table.Cell>
                 <Table.Cell>{(item.price / 100).toFixed(2)}</Table.Cell>
                 <Table.Cell>
                   <Button onClick={() => removeProduct(idx)}>X</Button>

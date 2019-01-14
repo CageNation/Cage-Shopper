@@ -28,10 +28,15 @@ class ProductList extends Component {
       return <h1>LOADING PRODUCTS...</h1>
     } else {
       return (
-        <div>
+        <div className="product-card">
           {this.state.products.length ? (
             this.state.products.map(product => {
-              return <ProductCard key={product.id} product={product} />
+              return (
+                <React.Fragment key={product.id}>
+                  <ProductCard product={product} />
+                  <div className="ui section divider" />
+                </React.Fragment>
+              )
             })
           ) : (
             <h1>NO PRODUCTS IN DATABASE</h1>

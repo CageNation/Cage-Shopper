@@ -20,6 +20,12 @@ form div {
   display: inline-block;
 }
 
-.productCard {
-  border: 2px solid black;
+.product-card {
+  padding-top: 50px;
+}
+
+.items {
+  width: 100%;
+  padding-left: 40px;
+  padding-right: 40px;
 }
