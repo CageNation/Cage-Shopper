@@ -18,7 +18,6 @@ class Navbar extends React.Component {
 
   render() {
     const {handleClick, isLoggedIn, cartSize} = this.props
-    //{children} = this.props
     const {fixed} = this.state
 
     return (
