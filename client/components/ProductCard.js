@@ -44,6 +44,7 @@ const ProductCard = props => {
           <Item.Description>
             {ReactHtmlParser(product.description)}
           </Item.Description>
+
           <Item.Extra>
             <Button
               onClick={() => addToCart(product, setCartSize, user)}
@@ -51,11 +52,12 @@ const ProductCard = props => {
               floated="right"
             >
               ADD TO CART
-              <Icon name="right chevron" />
+              {/* <Icon name="right chevron" /> */}
             </Button>
             <Label>Details</Label>
             <Label>Details</Label>
           </Item.Extra>
+          <Item.Header>Price: ${(product.price / 100).toFixed(2)}</Item.Header>
         </Item.Content>
       </Item>
     </Item.Group>
