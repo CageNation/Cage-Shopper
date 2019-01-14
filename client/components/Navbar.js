@@ -54,14 +54,13 @@ class Navbar extends React.Component {
                 <Menu.Item position="right">
                   {isLoggedIn ? (
                     <React.Fragment>
-                      <Link exact to="/home">
-                        <Button as="a" inverted={!fixed}>
+                      <Link to="/home">
+                        <Button inverted={!fixed}>
                           {/* The navbar will show these links after you log in */}
                           Account Page
                         </Button>
                       </Link>
                       <Button
-                        as="a"
                         inverted={!fixed}
                         primary={fixed}
                         style={{marginLeft: '0.5em'}}
@@ -74,14 +73,11 @@ class Navbar extends React.Component {
                   ) : (
                     <div>
                       {/* The navbar will show these links before you log in */}
-                      <Link exact to="/login">
-                        <Button as="a" inverted={!fixed}>
-                          Login
-                        </Button>
+                      <Link to="/login">
+                        <Button inverted={!fixed}>Login</Button>
                       </Link>
-                      <Link exact to="/signup">
+                      <Link to="/signup">
                         <Button
-                          as="a"
                           inverted={!fixed}
                           primary={fixed}
                           style={{marginLeft: '0.5em'}}
