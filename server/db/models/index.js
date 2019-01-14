@@ -11,6 +11,9 @@ const Order = require('./order')
 
 User.hasMany(Order)
 Order.belongsTo(User)
+// associations allow us to eager load a users orders and cart
+// in this case a users 'cart' is just an order instance that is flagged with completed: false
+// a user will only ever have one 'cart', while many finalized orders could be associated with the user, they will be stored with completed: true
 
 /**
  * We'll export all of our models here, so that any time a module needs a model,
