@@ -31,6 +31,38 @@ async function seed() {
       imageUrl:
         'https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcQK6qOss-CBtaLiUgrgLabx8oQY3KdGiYMC0ca2GDgXkkvNZUL_e1-oSadQksyl1XLI8amjUEga&usqp=CAE',
       price: 19999
+    }),
+    Product.create({
+      name: 'Nic Cage Face Sequin Throw Pillow',
+      description:
+        '<div>Creepy Nic Cage Sequin Throw Pillow! <br><br>16x16 inch either throw pillow cover <br>Throw pillow filling can be added for an addition cost.</div>',
+      imageUrl:
+        'https://i.etsystatic.com/18557492/r/il/c3f390/1693304512/il_fullxfull.1693304512_2yzz.jpg',
+      price: 2599
+    }),
+    Product.create({
+      name: 'Creepy Cage Face Coffee MUG',
+      description:
+        '<div>Quietly sip your coffee and let Nic Cage do the expressing... <br><br>Premium quality, ceramic mug in your choice of 11oz or 15oz. Made of a dishwasher &amp; microwave safe, durable white ceramic.<br><br>Carefully Packed &amp; Promptly Shipped -- Outstanding Customer Service -- Buy with Confidence</div>',
+      imageUrl:
+        'https://i.etsystatic.com/6157210/r/il/e8ddc4/933583248/il_fullxfull.933583248_b281.jpg',
+      price: 1295
+    }),
+    Product.create({
+      name: 'Nicolas Cage Face Sequin Pillow',
+      description:
+        '<div>Sequin pillow | Nicolas Cage face<br><br>Two way Sequin pillow<br><br>Check video here: <br>https://www.instagram.com/p/Bgydrbjn25z/?hl=en&amp;taken-by=memeskins<br><br>You can buy your own 40cm x 40cm insert pillow or purchase from us by selecting YES</div>',
+      imageUrl:
+        'https://i.etsystatic.com/8641628/r/il/2a0d64/1689129986/il_fullxfull.1689129986_dy6u.jpg',
+      price: 2499
+    }),
+    Product.create({
+      name: 'Pickle Meme Mug',
+      description:
+        'People who prefer drinking coffee out of a mug over drinking it straight from the pot a la Johnny Blaze, people who need a giggle with their coffee after surviving a bender in Las Vegas, and anyone who understands why Cage’s face in a pickle qualifies for meme status. Because it’s like we’re not even trying anymore.',
+      imageUrl:
+        'https://uproxx.files.wordpress.com/2017/08/screen-shot-2017-08-28-at-12-25-59-am.jpg?quality=95&w=650',
+      price: 1064
     })
   ])
 

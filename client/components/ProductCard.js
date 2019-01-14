@@ -4,6 +4,7 @@ import {connect} from 'react-redux'
 import axios from 'axios'
 
 import {Button, Icon, Image, Item, Label} from 'semantic-ui-react'
+import ReactHtmlParser from 'react-html-parser'
 
 const addToCart = async (product, setCartSize, user) => {
   const currentItems = JSON.parse(localStorage.getItem('cart'))
@@ -54,7 +55,9 @@ const ProductCard = props => {
           <Item.Meta>
             <span className="cinema">Description:</span>
           </Item.Meta>
-          <Item.Description>{product.description}</Item.Description>
+          <Item.Description>
+            {ReactHtmlParser(product.description)}
+          </Item.Description>
           <Item.Extra>
             <Button
               onClick={() => addToCart(product, setCartSize, user)}
