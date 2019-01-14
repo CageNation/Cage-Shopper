@@ -12,6 +12,7 @@ const CURRENCY = 'USD'
 const fromEuroToCent = amount => amount * 100
 
 const successPayment = data => {
+  // set our checkoutstatus to successful in redux state so we can load our postcheckout component in the redirect
   store.dispatch(setSuccess(true))
   history.push('/postcheckout')
 }

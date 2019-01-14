@@ -4,6 +4,7 @@ module.exports = router
 
 // /api/users api routes
 
+// GET /api/users
 // get ALL users
 router.get('/', async (req, res, next) => {
   try {
@@ -19,6 +20,7 @@ router.get('/', async (req, res, next) => {
   }
 })
 
+// GET api/users/:id
 // get an individual user by their ID, eager load their saved cart
 router.get('/:id', async (req, res, next) => {
   try {
@@ -33,6 +35,7 @@ router.get('/:id', async (req, res, next) => {
   }
 })
 
+// GET /api/users/:id/cart
 // get users cart
 router.get('/:id/cart', async (req, res, next) => {
   try {
@@ -49,7 +52,8 @@ router.get('/:id/cart', async (req, res, next) => {
   }
 })
 
-// update users cart with new one from req.body
+// PUT /api/users/:id/cart
+// sync users cart with new one from req.body, will also take a completed status in body to toggle from cart to completed order
 router.put('/:id/cart', async (req, res, next) => {
   try {
     const cart = await Order.findOne({
@@ -69,6 +73,10 @@ router.put('/:id/cart', async (req, res, next) => {
   }
 })
 
+// POST /api/users/:id/cart
+// creates a new 'cart' for the assigned user, an order that is completed: false and is assigned the user
+// only user after completing the current 'cart' order after a stripe verification!
+
 router.post('/:id/cart', async (req, res, next) => {
   try {
     await Order.create({userId: req.params.id})
@@ -78,6 +86,9 @@ router.post('/:id/cart', async (req, res, next) => {
     next(error)
   }
 })
+
+// POST /api/users/guestCheckout
+// saves a completed guest order in DB with userId null
 
 router.post('/guestCheckout', async (req, res, next) => {
   try {

@@ -19,18 +19,24 @@ class PostCheckout extends Component {
   }
   async componentDidMount() {
     const {userId, checkoutStatus, emptyCart, toggleSuccess} = this.props
+    // before doing anything, check that our checkout status has been set to true in redux state
     if (checkoutStatus) {
+      // if it has, grab the order data from local storage, empty cart size on state, empty local storage
       let products = localStorage.getItem('cart')
       emptyCart()
       localStorage.clear()
       try {
+        // check if a user is logged in
         if (userId) {
+          // if they are, store the finalized order and set its completed status to true
           await axios.put(`/api/users/${userId}/cart`, {
             products,
             completed: true
           })
+          // then create a new 'cart' for them
           await axios.post(`/api/users/${userId}/cart`)
         } else {
+          // if no user logged in just save the guest order in the db with no userid
           await axios.post(`/api/users/guestCheckout`, {
             orderData: products,
             completed: true,
@@ -42,6 +48,7 @@ class PostCheckout extends Component {
       }
       toggleSuccess(false)
     } else {
+      // if we have come to this component from anywhere but our payment success function, just redirect and dont run any code
       history.push('/cart')
     }
   }

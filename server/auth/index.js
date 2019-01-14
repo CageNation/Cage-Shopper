@@ -22,6 +22,7 @@ router.post('/login', async (req, res, next) => {
 
 router.post('/signup', async (req, res, next) => {
   try {
+    // create a new blank order pointing to our user as their 'cart'
     const user = await User.create(req.body)
     await Order.create({userId: user.id})
     req.login(user, err => (err ? next(err) : res.json(user)))

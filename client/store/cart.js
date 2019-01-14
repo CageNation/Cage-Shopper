@@ -1,3 +1,6 @@
+// state for our cart badge in the navbar
+// we check the size of our cart in localstorage and set/clear the number with this store to allow the badge to dynamically render the cart size
+
 //ACTION TYPES:
 
 const SET_CART = 'SET_CART'
