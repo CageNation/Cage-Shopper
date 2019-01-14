@@ -3,7 +3,7 @@ import {clearCart, setCart} from '../store'
 import {connect} from 'react-redux'
 import axios from 'axios'
 
-import {Button, Icon, Image, Item, Label} from 'semantic-ui-react'
+import {Button, Icon, Item, Label} from 'semantic-ui-react'
 import ReactHtmlParser from 'react-html-parser'
 
 const addToCart = async (product, setCartSize, user) => {
@@ -30,20 +30,6 @@ const addToCart = async (product, setCartSize, user) => {
 
 const ProductCard = props => {
   const {product, setCartSize, user} = props
-  // return (
-  //   <div className="productCard">
-  //     <p>{`product name: ${product.name}`}</p>
-  //     <img src={product.imageUrl} />
-  //     <p>{`description: ${product.description}`}</p>
-  //     <h3>{`price: ${(product.price / 100).toFixed(2)}`}</h3>
-  //     <button
-  //       type="submit"
-  //       onClick={() => addToCart(product, setCartSize, user)}
-  //     >
-  //       ADD TO CART
-  //     </button>
-  //   </div>
-  // )
 
   return (
     <Item.Group divided>
@@ -53,7 +39,7 @@ const ProductCard = props => {
         <Item.Content>
           <Item.Header as="a">{product.name}</Item.Header>
           <Item.Meta>
-            <span className="cinema">Description:</span>
+            <span className="product description">Description:</span>
           </Item.Meta>
           <Item.Description>
             {ReactHtmlParser(product.description)}
