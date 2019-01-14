@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import {connect} from 'react-redux'
 import {Table} from 'semantic-ui-react'
 import axios from 'axios'
+import ReactHtmlParser from 'react-html-parser'
 
 /**
  * COMPONENT
@@ -10,23 +11,17 @@ import axios from 'axios'
 class Profile extends React.Component {
   constructor(props) {
     super(props)
-    // const {user} = props
-    // let totalPrice
-
     this.state = {orders: []}
   }
 
   async componentDidMount() {
     const user = await axios.get(`/api/users/${this.props.user.id}`)
-    console.log('USER: ', this.props.user)
-    console.log('USER WITH ORDERS', user.data.orders)
     this.setState(...this.state.orders, {orders: user.data.orders})
   }
 
   render() {
     const orders = this.state.orders
     let totalPrice = 0
-    console.log('ORDERS', orders)
     return (
       <div>
         <h1>Welcome, {this.props.user.email}</h1>
@@ -41,7 +36,7 @@ class Profile extends React.Component {
             {orders.map((order, idx) => {
               this.totalPrice = 0
               const products = JSON.parse(orders[idx].orderData)
-              //console.log("PRODUCTS", products)
+
               if (order.completed) {
                 return (
                   <Table size="large" key={order.id}>
@@ -64,7 +59,9 @@ class Profile extends React.Component {
                         return (
                           <Table.Row key={idx + product.name}>
                             <Table.Cell>{product.name}</Table.Cell>
-                            <Table.Cell>{product.description}</Table.Cell>
+                            <Table.Cell>
+                              {ReactHtmlParser(product.description)}
+                            </Table.Cell>
                             <Table.Cell>
                               {(product.price / 100).toFixed(2)}
                             </Table.Cell>
