@@ -37,7 +37,7 @@ class Profile extends React.Component {
 
         {orders ? (
           <div>
-            <h2>Orders</h2>
+            <h2>Order History</h2>
             {orders.map((order, idx) => {
               this.totalPrice = 0
               const products = JSON.parse(orders[idx].orderData)
