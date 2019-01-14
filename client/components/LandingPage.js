@@ -15,7 +15,11 @@ class LandingPage extends Component {
   }
 
   async componentDidMount() {
-    const {data: products} = await axios.get('/api/products')
+    try {
+      const {data: products} = await axios.get('/api/products')
+    } catch (error) {
+      console.error(error)
+    }
     this.setState({
       products,
       loading: false

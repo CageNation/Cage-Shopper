@@ -25,7 +25,11 @@ class Cart extends Component {
     localStorage.setItem('cart', JSON.stringify(products))
     this.props.setCartSize(products.length)
     if (user.id) {
-      await axios.put(`/api/users/${user.id}/cart`, {products})
+      try {
+        await axios.put(`/api/users/${user.id}/cart`, {products})
+      } catch (error) {
+        console.error(error)
+      }
     }
     this.setState({
       cart: [...products],
@@ -38,7 +42,11 @@ class Cart extends Component {
     this.props.emptyCart()
     const user = this.props.user
     if (user.id) {
-      await axios.put(`/api/users/${user.id}/cart`, {products: []})
+      try {
+        await axios.put(`/api/users/${user.id}/cart`, {products: []})
+      } catch (error) {
+        console.error(error)
+      }
     }
     this.setState({
       cart: []

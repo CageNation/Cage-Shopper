@@ -17,7 +17,11 @@ const addToCart = async (product, setCartSize, user) => {
     localStorage.setItem('cart', JSON.stringify(products))
   }
   if (user.id) {
-    await axios.put(`/api/users/${user.id}/cart`, {products})
+    try {
+      await axios.put(`/api/users/${user.id}/cart`, {products})
+    } catch (error) {
+      console.error(error)
+    }
   }
 }
 
