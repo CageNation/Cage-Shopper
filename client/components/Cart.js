@@ -71,7 +71,7 @@ class Cart extends Component {
       return <h1>LOADING CART...</h1>
     } else {
       return (
-        <ul>
+        <div>
           {this.state.cart.length ? (
             <CartList
               products={this.state.cart}
@@ -81,7 +81,7 @@ class Cart extends Component {
           ) : (
             <h1>EMPTY CART</h1>
           )}
-        </ul>
+        </div>
       )
     }
   }

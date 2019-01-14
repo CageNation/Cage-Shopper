@@ -28,7 +28,7 @@ class ProductList extends Component {
       return <h1>LOADING PRODUCTS...</h1>
     } else {
       return (
-        <ul>
+        <div>
           {this.state.products.length ? (
             this.state.products.map(product => {
               return <ProductCard key={product.id} product={product} />
@@ -36,7 +36,7 @@ class ProductList extends Component {
           ) : (
             <h1>NO PRODUCTS IN DATABASE</h1>
           )}
-        </ul>
+        </div>
       )
     }
   }
