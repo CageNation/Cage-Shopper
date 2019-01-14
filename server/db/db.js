@@ -2,7 +2,6 @@ const Sequelize = require('sequelize')
 const pkg = require('../../package.json')
 
 const databaseName = 'CageMatch'
-//const databaseName = 'postgresql-acute-46369'
 
 const db = new Sequelize(
   process.env.DATABASE_URL || `postgres://localhost:5432/${databaseName}`,
