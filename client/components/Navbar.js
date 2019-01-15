@@ -64,10 +64,9 @@ class Navbar extends React.Component {
                         inverted={!fixed}
                         primary={fixed}
                         style={{marginLeft: '0.5em'}}
+                        onClick={handleClick}
                       >
-                        <a href="#" onClick={handleClick}>
-                          Logout
-                        </a>
+                        Logout
                       </Button>
                     </React.Fragment>
                   ) : (
@@ -110,6 +109,7 @@ const mapState = state => {
 const mapDispatch = dispatch => {
   return {
     handleClick() {
+      console.log('yoyo')
       dispatch(logout())
     }
   }
