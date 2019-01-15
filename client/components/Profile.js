@@ -4,6 +4,7 @@ import {connect} from 'react-redux'
 import {Accordion, Table, Menu} from 'semantic-ui-react'
 import axios from 'axios'
 import ReactHtmlParser from 'react-html-parser'
+import history from '../history'
 
 /**
  * COMPONENT
@@ -15,8 +16,12 @@ class Profile extends React.Component {
   }
 
   async componentDidMount() {
-    const user = await axios.get(`/api/users/${this.props.user.id}`)
-    this.setState({orders: user.data.orders})
+    try {
+      const user = await axios.get(`/api/users/${this.props.user.id}`)
+      this.setState({orders: user.data.orders})
+    } catch (error) {
+      console.error(error)
+    }
   }
 
   render() {
