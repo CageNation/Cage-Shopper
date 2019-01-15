@@ -63,6 +63,13 @@ async function seed() {
       imageUrl:
         'https://uproxx.files.wordpress.com/2017/08/screen-shot-2017-08-28-at-12-25-59-am.jpg?quality=95&w=650',
       price: 1064
+    }),
+    Product.create({
+      name: 'Nic Cage Body Face (VERY COMPLEX SURGERY!)',
+      description:
+        'Only for the true Ascendant of Cage, the truly dedicated and divinely driven to serve The Great Master Nic and give their life to his purpose. This is a risky and complex surgery that takes 2 weeks to complete. Only the strong willed and most pure of soul may undertake this great communion with the eternal.',
+      imageUrl: `https://static.squarespace.com/static/51b3dc8ee4b051b96ceb10de/51ce6099e4b0d911b4489b79/51ce6189e4b0d911b4497679/1357586529757/1000w/cagebodyface.jpg`,
+      price: 100366623
     })
   ])
 
