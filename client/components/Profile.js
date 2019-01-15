@@ -49,6 +49,7 @@ class Profile extends React.Component {
                           key: orderNumber,
                           title: orderNumber,
                           content: {
+                            // Maybe could be <OrderTable {...} />
                             content: orderTable(order.id, products, totalPrice)
                           }
                         }
@@ -86,6 +87,7 @@ const orderTable = (id, products, totalPrice) => {
         </Table.Row>
       </Table.Header>
       <Table.Body>
+        {/* OB/LM: maybe group by product id before mapping */}
         {products.map((product, idx) => {
           totalPrice += product.price
           return (

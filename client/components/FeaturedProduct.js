@@ -13,6 +13,10 @@ class FeaturedProduct extends Component {
       loading: true
     }
   }
+  // OB/LM: you can do
+  /*
+  state = {products: [], loading: true}
+  */
 
   async componentDidMount() {
     try {

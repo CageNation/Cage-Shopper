@@ -17,6 +17,7 @@ const paymentApi = app => {
   })
 
   app.post('/', (req, res) => {
+    // OB/LM: client can define charge amount (not good), sanitize the request body (recommend util method for this)
     stripe.charges.create(req.body, postStripeCharge(res))
   })
 

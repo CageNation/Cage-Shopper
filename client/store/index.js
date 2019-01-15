@@ -6,6 +6,7 @@ import user from './user'
 import cart from './cart'
 import checkout from './checkout'
 
+// OB/LM: redux middleware for persisting cart to `localStorage` (could help reduce "multiple update" issues)
 const reducer = combineReducers({user, cart, checkout})
 const middleware = composeWithDevTools(
   applyMiddleware(thunkMiddleware, createLogger({collapsed: true}))
