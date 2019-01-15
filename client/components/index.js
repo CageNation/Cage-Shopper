@@ -6,7 +6,7 @@
 export {default as Navbar} from './Navbar'
 export {default as Profile} from './Profile'
 export {default as ProductList} from './ProductList'
-export {default as LandingPage} from './LandingPage'
+export {default as FeaturedProduct} from './FeaturedProduct'
 export {default as Cart} from './Cart'
 export {default as Checkout} from './Checkout/Checkout'
 export {default as PostCheckout} from './PostCheckout'

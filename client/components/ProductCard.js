@@ -54,8 +54,6 @@ const ProductCard = props => {
               ADD TO CART
               {/* <Icon name="right chevron" /> */}
             </Button>
-            <Label>Details</Label>
-            <Label>Details</Label>
           </Item.Extra>
           <Item.Header>Price: ${(product.price / 100).toFixed(2)}</Item.Header>
         </Item.Content>

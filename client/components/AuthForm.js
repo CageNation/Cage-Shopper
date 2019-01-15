@@ -89,12 +89,6 @@ class AuthForm extends Component {
                 </Button.Submit>
               </Segment>
             </Form>
-            <a href="/auth/google">
-              <Button color="google plus" floated="left">
-                <Icon name="google plus" /> {this.props.displayName} with
-                Google+
-              </Button>
-            </a>
           </Grid.Column>
         </Grid>
       </div>

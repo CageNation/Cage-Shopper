@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types'
 import React, {Component} from 'react'
+import FeaturedProduct from './FeaturedProduct'
 import {
   Button,
   Container,
@@ -96,11 +97,17 @@ class HomePage extends React.Component {
   render() {
     return (
       <ResponsiveContainer>
-        <Segment vertical className="home-page-body">
+        <Header as="h1" textAlign="center" className="home-page-grid-header">
+          FEATURED PRODUCT
+        </Header>
+        <Segment className="home-page-body">
+          <FeaturedProduct />
+        </Segment>
+        <Segment vertical inverted className="home-page-body">
           <Grid container stackable verticalAlign="middle">
             <Grid.Row>
               <Grid.Column width={8}>
-                <Header as="h3" className="home-page-grid-header">
+                <Header inverted as="h3" className="home-page-grid-header">
                   We Help Shoppers
                 </Header>
                 <p>
@@ -118,11 +125,7 @@ class HomePage extends React.Component {
                 />
               </Grid.Column>
             </Grid.Row>
-            <Grid.Row>
-              <Grid.Column textAlign="center">
-                <Button size="huge">Check Them Out</Button>
-              </Grid.Column>
-            </Grid.Row>
+            <Grid.Row />
           </Grid>
         </Segment>
         <Segment vertical className="home-page-body">

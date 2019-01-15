@@ -5,7 +5,7 @@ import axios from 'axios'
 /**
  * COMPONENT
  */
-class LandingPage extends Component {
+class FeaturedProduct extends Component {
   constructor() {
     super()
     this.state = {
@@ -34,15 +34,9 @@ class LandingPage extends Component {
         Math.random() * Math.floor(this.state.products.length)
       )
       const featuredProd = this.state.products[idx]
-      return (
-        <div>
-          <h1>WELCOME TO THE CAGE MATCH!</h1>
-          <h2>FEATURED PRODUCT:</h2>
-          <ProductCard product={featuredProd} />
-        </div>
-      )
+      return <ProductCard product={featuredProd} />
     }
   }
 }
 
-export default LandingPage
+export default FeaturedProduct
