@@ -16,6 +16,8 @@ class Cart extends Component {
   }
 
   async removeProduct(index) {
+    // remove product from our state, overwrite localstorage with new cart info, adjust our cart badge
+    // then if we are also logged in change our cart in the DB
     let products = [...this.state.cart]
     const user = this.props.user
     products.splice(index, 1)
@@ -35,6 +37,7 @@ class Cart extends Component {
   }
 
   async clearCart() {
+    // clear local storage, cart badge and cart in DB (if logged in)
     localStorage.clear()
     this.props.emptyCart()
     const user = this.props.user

@@ -17,6 +17,8 @@ const Order = db.define(
       defaultValue: '[]'
     },
     // flag to differentiate a users past completed orders with their current uncompleted order(their 'cart')
+    // will only ever be one incomplete order per user, which we will use as a temporary order for their cart,
+    // when an order is completed and verified by stripe we will save it as completed and create a new cart order for that user
     completed: {
       type: Sequelize.BOOLEAN,
       defaultValue: false

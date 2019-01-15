@@ -25,7 +25,7 @@ class FeaturedProduct extends Component {
       console.error(error)
     }
   }
-
+  // load a random product to display on homepage as 'featured'
   render() {
     if (this.state.loading) {
       return <h1>LOADING...</h1>

@@ -114,6 +114,9 @@ class HomePage extends React.Component {
                   We can give you the best and latest Nicolas Cage Merchandise
                   on the market today. We empower the Nicolas Cage fan through
                   our relentless pursuit creating Nicolas Cage Merchandise
+                  whether they be worshippers of the Cage or not! Everyone is
+                  welcome in the eyes of the Great Nic and we may all bask in
+                  his great presence!
                 </p>
               </Grid.Column>
               <Grid.Column floated="right" width={6}>
@@ -139,11 +142,10 @@ class HomePage extends React.Component {
               </Grid.Column>
               <Grid.Column className="home-page-grid">
                 <Header as="h3" className="home-page-grid-header">
-                  "I shouldn't have gone with their competitor."
+                  "A place celebrating our true lord and savior Nic like nowhere
+                  else. Bow down and give them all your money!"
                 </Header>
-                <p>
-                  <b>Nan</b> Chief Fun Officer Acme Toys
-                </p>
+                <p>Steven Seagall, Head Priest of the Church of Cage</p>
               </Grid.Column>
             </Grid.Row>
           </Grid>
