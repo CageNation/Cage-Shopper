@@ -3,6 +3,7 @@ import {connect} from 'react-redux'
 import PropTypes from 'prop-types'
 import {auth} from '../store'
 import * as Yup from 'yup'
+
 //formik semantic-ui wraps certain semantic ui components with formik functionality
 import {Button, Form, Input} from 'formik-semantic-ui'
 import {Grid, Header, Image, Segment, Icon} from 'semantic-ui-react'
@@ -46,8 +47,8 @@ class AuthForm extends Component {
     return (
       <div className="auth-form">
         <Grid
+          className="auth-form-grid"
           textAlign="center"
-          style={{height: '100%'}}
           verticalAlign="middle"
         >
           <Grid.Column style={{maxWidth: 450}}>

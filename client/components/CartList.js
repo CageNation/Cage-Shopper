@@ -3,9 +3,6 @@ import Checkout from './Checkout/Checkout'
 import {Button, Table} from 'semantic-ui-react'
 import ReactHtmlParser from 'react-html-parser'
 
-//NOTE
-// When using localStorage you can only use strings
-// In order to use arrays you have to use JSON.stringify() and JSON.parse()
 export const CartList = props => {
   const {products, removeProduct, clearCart} = props
   let totalPrice = 0

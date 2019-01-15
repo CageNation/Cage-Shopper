@@ -1,0 +1,69 @@
+.product-card {
+  padding-top: 50px;
+}
+
+.items {
+  width: 100%;
+  padding-left: 40px;
+  padding-right: 40px;
+}
+
+body > div,
+body > div > div,
+body > div > div > div.auth-form {
+  height: 95%;
+}
+
+.ui.vertical.accordion.menu {
+  width: 100%;
+}
+
+.ui.inverted.header {
+  margin-top: 0em !important;
+}
+
+/***** AUTH - FORM ******/
+.auth-form-grid {
+  height: 100%;
+}
+
+/**** HOMEPAGE *********/
+.home-page-header {
+  font-size: 4em !important;
+  font-weight: normal;
+  margin-bottom: 0;
+  margin-top: 3em;
+}
+
+.home-page-subheader {
+  font-size: 1.7em;
+  font-weight: normal;
+  margin-bottom: 0;
+  margin-top: 1.5em;
+}
+
+.home-page-body {
+  padding: 4em 0em !important;
+}
+
+.home-page-grid {
+  padding-bottom: 5em;
+  padding-top: 5em;
+}
+
+.home-page-grid-header {
+  font-size: 2em !important;
+}
+
+.home-page-body p {
+  font-size: 1.33em !important;
+}
+
+.home-page-main-header {
+  height: 300px;
+  padding: 50px 0em !important;
+}
+
+.home-page-button {
+  color: white;
+}
