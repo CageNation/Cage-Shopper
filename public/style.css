@@ -35,3 +35,7 @@ body > div > div,
 body > div > div > div.auth-form {
   height: 95%;
 }
+
+.ui.vertical.accordion.menu {
+  width: 100%;
+}
