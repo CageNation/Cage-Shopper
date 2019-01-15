@@ -32,33 +32,37 @@ const ProductCard = props => {
   const {product, setCartSize, user} = props
 
   return (
-    <Item.Group divided>
-      <Item>
-        <Item.Image src={product.imageUrl} />
+    <div className="ui centered card product-card">
+      <Item.Group divided>
+        <Item>
+          <Item.Image src={product.imageUrl} />
 
-        <Item.Content>
-          <Item.Header as="a">{product.name}</Item.Header>
-          <Item.Meta>
-            <span className="product description">Description:</span>
-          </Item.Meta>
-          <Item.Description>
-            {ReactHtmlParser(product.description)}
-          </Item.Description>
+          <Item.Content>
+            <Item.Header as="a">{product.name}</Item.Header>
+            <Item.Meta>
+              <span className="product description">Description:</span>
+            </Item.Meta>
+            <Item.Description>
+              {ReactHtmlParser(product.description)}
+            </Item.Description>
 
-          <Item.Extra>
-            <Button
-              onClick={() => addToCart(product, setCartSize, user)}
-              primary
-              floated="right"
-            >
-              ADD TO CART
-              {/* <Icon name="right chevron" /> */}
-            </Button>
-          </Item.Extra>
-          <Item.Header>Price: ${(product.price / 100).toFixed(2)}</Item.Header>
-        </Item.Content>
-      </Item>
-    </Item.Group>
+            <Item.Extra>
+              <Button
+                onClick={() => addToCart(product, setCartSize, user)}
+                primary
+                floated="right"
+              >
+                ADD TO CART
+                {/* <Icon name="right chevron" /> */}
+              </Button>
+            </Item.Extra>
+            <Item.Header>
+              Price: ${(product.price / 100).toFixed(2)}
+            </Item.Header>
+          </Item.Content>
+        </Item>
+      </Item.Group>
+    </div>
   )
 }
 

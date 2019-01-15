@@ -28,7 +28,7 @@ class ProductList extends Component {
       return <h1>LOADING PRODUCTS...</h1>
     } else {
       return (
-        <div className="product-card">
+        <div className="product-list">
           {this.state.products.length ? (
             this.state.products.map(product => {
               return (

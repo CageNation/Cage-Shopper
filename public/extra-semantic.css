@@ -67,3 +67,9 @@ body > div > div > div.auth-form {
 .home-page-button {
   color: white;
 }
+
+.product-card {
+  width: 80% !important;
+  padding-top: 30px !important;
+  padding-bottom: 30px !important;
+}
