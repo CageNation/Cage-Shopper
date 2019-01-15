@@ -39,3 +39,7 @@ body > div > div > div.auth-form {
 .ui.vertical.accordion.menu {
   width: 100%;
 }
+
+.ui.inverted.header {
+  margin-top: 0em !important;
+}
