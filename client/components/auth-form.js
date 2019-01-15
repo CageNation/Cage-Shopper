@@ -61,7 +61,7 @@ class AuthForm extends Component {
               initialValues={this.props.authProps}
               validationSchema={SignupSchema}
             >
-              when using
+              {/* when using formik semantic ui to manipulate input put props in inputProps */}
               <Segment stacked>
                 <Input
                   fluid
