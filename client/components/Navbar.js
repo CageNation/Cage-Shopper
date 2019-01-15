@@ -41,7 +41,7 @@ class Navbar extends React.Component {
               size="large"
             >
               <Container>
-                <Menu.Item as={NavLink} exact to="/landing">
+                <Menu.Item as={NavLink} exact to="/">
                   Home
                 </Menu.Item>
                 <Menu.Item as={NavLink} exact to="/products">
@@ -54,7 +54,7 @@ class Navbar extends React.Component {
                 <Menu.Item position="right">
                   {isLoggedIn ? (
                     <React.Fragment>
-                      <Link to="/home">
+                      <Link to="/account">
                         <Button inverted={!fixed}>
                           {/* The navbar will show these links after you log in */}
                           Account Page
