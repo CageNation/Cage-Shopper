@@ -37,6 +37,7 @@ class Routes extends Component {
         <Route exact path="/login" component={Login} />
         <Route exact path="/signup" component={Signup} />
         <Route exact path="/cart" component={Cart} />
+        <Route exact path="/account" component={Profile} />
         <Route exact path="/postcheckout" component={PostCheckout} />
         {/* figure out how to dynamically get name descript */}
         {isLoggedIn && (

@@ -1,5 +1,6 @@
 const router = require('express').Router()
 const {User, Order} = require('../db/models')
+const {checkUser} = require('./utils')
 module.exports = router
 
 // /api/users api routes
@@ -7,22 +8,24 @@ module.exports = router
 // GET /api/users
 // get ALL users
 router.get('/', async (req, res, next) => {
-  try {
-    const users = await User.findAll({
-      // explicitly select only the id and email fields - even though
-      // users' passwords are encrypted, it won't help if we just
-      // send everything to anyone who asks!
-      attributes: ['id', 'email']
-    })
-    res.json(users)
-  } catch (err) {
-    next(err)
+  if (req.user.isAdmin) {
+    try {
+      const users = await User.findAll({
+        // explicitly select only the id and email fields - even though
+        // users' passwords are encrypted, it won't help if we just
+        // send everything to anyone who asks!
+        attributes: ['id', 'email']
+      })
+      res.json(users)
+    } catch (err) {
+      next(err)
+    }
   }
 })
 
 // GET api/users/:id
 // get an individual user by their ID, eager load their saved cart
-router.get('/:id', async (req, res, next) => {
+router.get('/:id', checkUser, async (req, res, next) => {
   try {
     const user = await User.findOne({
       where: {id: req.params.id},
@@ -37,7 +40,7 @@ router.get('/:id', async (req, res, next) => {
 
 // GET /api/users/:id/cart
 // get users cart
-router.get('/:id/cart', async (req, res, next) => {
+router.get('/:id/cart', checkUser, async (req, res, next) => {
   try {
     const cart = await Order.findOne({
       where: {
@@ -54,7 +57,7 @@ router.get('/:id/cart', async (req, res, next) => {
 
 // PUT /api/users/:id/cart
 // sync users cart with new one from req.body, will also take a completed status in body to toggle from cart to completed order
-router.put('/:id/cart', async (req, res, next) => {
+router.put('/:id/cart', checkUser, async (req, res, next) => {
   try {
     const cart = await Order.findOne({
       where: {
@@ -77,7 +80,7 @@ router.put('/:id/cart', async (req, res, next) => {
 // creates a new 'cart' for the assigned user, an order that is completed: false and is assigned the user
 // only user after completing the current 'cart' order after a stripe verification!
 
-router.post('/:id/cart', async (req, res, next) => {
+router.post('/:id/cart', checkUser, async (req, res, next) => {
   try {
     await Order.create({userId: req.params.id})
     res.sendStatus(201)
