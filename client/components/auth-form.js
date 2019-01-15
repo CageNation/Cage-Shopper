@@ -1,73 +1,104 @@
-import React from 'react'
+import React, {Component} from 'react'
 import {connect} from 'react-redux'
 import PropTypes from 'prop-types'
 import {auth} from '../store'
-import {
-  Button,
-  Form,
-  Grid,
-  Header,
-  Image,
-  Message,
-  Segment,
-  Icon
-} from 'semantic-ui-react'
+import * as Yup from 'yup'
+//formik semantic-ui wraps certain semantic ui components with formik functionality
+import {Button, Form, Input} from 'formik-semantic-ui'
+import {Grid, Header, Image, Segment, Icon} from 'semantic-ui-react'
 
+const SignupSchema = Yup.object().shape({
+  password: Yup.string().required('No password provided.'),
+  email: Yup.string()
+    .email('Invalid email')
+    .required('Email Required')
+})
 /**
  * COMPONENT
  */
-const AuthForm = props => {
-  const {name, displayName, handleSubmit, error} = props
+class AuthForm extends Component {
+  // this creates the initial values for the form fields
+  static defaultProps = {
+    authProps: {
+      email: '',
+      password: ''
+    }
+  }
 
-  return (
-    <div className="auth-form">
-      <Grid textAlign="center" style={{height: '100%'}} verticalAlign="middle">
-        <Grid.Column style={{maxWidth: 450}}>
-          <Header as="h2" color="teal" textAlign="center">
-            <Image src="https://images-na.ssl-images-amazon.com/images/I/61Wo915nuTL._SX425_.jpg" />{' '}
-            {displayName} to your account
-          </Header>
-          <Form onSubmit={handleSubmit} name={name}>
-            <Segment stacked>
-              <Form.Input
-                fluid
-                icon="user"
-                iconPosition="left"
-                placeholder="E-mail address"
-                name="email"
-              />
-              <Form.Input
-                fluid
-                icon="lock"
-                iconPosition="left"
-                placeholder="Password"
-                type="password"
-                name="password"
-              />
-              <Button type="submit" fluid size="large">
-                {displayName}
-              </Button>
-            </Segment>
-          </Form>
-          <a href="/auth/google">
-            <Button color="google plus" floated="left">
-              <Icon name="google plus" /> {displayName} with Google+
-            </Button>
-          </a>
-          {error &&
-            error.response && (
-              <div>
-                <Message
-                  error
-                  header={`${displayName} failed`}
-                  content={error.response.data}
+  _handleSubmit = async (values, formikApi) => {
+    try {
+      // Make API Call
+      // Handle response / Errors
+      let result = await this.props.dispatch(
+        auth(values.email, values.password, this.props.name)
+      )
+      // if status is 401 set the error to backend response/error data
+      if (result.user.error.response.status === 401) {
+        formikApi.setFieldError('email', result.user.error.response.data)
+      }
+      formikApi.setSubmitting(false)
+    } catch (err) {
+      console.log(err.response)
+    }
+  }
+
+  render() {
+    return (
+      <div className="auth-form">
+        <Grid
+          textAlign="center"
+          style={{height: '100%'}}
+          verticalAlign="middle"
+        >
+          <Grid.Column style={{maxWidth: 450}}>
+            <Header as="h2" color="teal" textAlign="center">
+              <Image src="https://images-na.ssl-images-amazon.com/images/I/61Wo915nuTL._SX425_.jpg" />{' '}
+              {this.props.displayName} to your account
+            </Header>
+            <Form
+              onSubmit={this._handleSubmit}
+              name={this.props.name}
+              initialValues={this.props.authProps}
+              validationSchema={SignupSchema}
+            >
+              when using
+              <Segment stacked>
+                <Input
+                  fluid
+                  inputProps={{
+                    type: 'email',
+                    icon: 'user',
+                    iconPosition: 'left',
+                    placeholder: 'E-mail address'
+                  }}
+                  name="email"
                 />
-              </div>
-            )}
-        </Grid.Column>
-      </Grid>
-    </div>
-  )
+                <Input
+                  placeholder="Password"
+                  inputProps={{
+                    type: 'password',
+                    icon: 'lock',
+                    iconPosition: 'left',
+                    placeholder: 'Password'
+                  }}
+                  name="password"
+                />
+                <Button.Submit type="submit" fluid size="large">
+                  {this.props.displayName}
+                </Button.Submit>
+              </Segment>
+            </Form>
+            <a href="/auth/google">
+              <Button color="google plus" floated="left">
+                <Icon name="google plus" /> {this.props.displayName} with
+                Google+
+              </Button>
+            </a>
+          </Grid.Column>
+        </Grid>
+      </div>
+    )
+  }
 }
 
 /**
@@ -93,20 +124,8 @@ const mapSignup = state => {
   }
 }
 
-const mapDispatch = dispatch => {
-  return {
-    handleSubmit(evt) {
-      evt.preventDefault()
-      const formName = evt.target.name
-      const email = evt.target.email.value
-      const password = evt.target.password.value
-      dispatch(auth(email, password, formName))
-    }
-  }
-}
-
-export const Login = connect(mapLogin, mapDispatch)(AuthForm)
-export const Signup = connect(mapSignup, mapDispatch)(AuthForm)
+export const Login = connect(mapLogin)(AuthForm)
+export const Signup = connect(mapSignup)(AuthForm)
 
 /**
  * PROP TYPES
