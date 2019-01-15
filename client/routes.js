@@ -33,23 +33,21 @@ class Routes extends Component {
     return (
       <Switch>
         {/* Routes placed here are available to all visitors */}
-        <Route path="/products" component={ProductList} />
-        <Route path="/login" component={Login} />
-        <Route path="/signup" component={Signup} />
-        <Route path="/landing" component={LandingPage} />
-        <Route path="/cart" component={Cart} />
-        <Route path="/newhomepage" component={HomePage} />
-        <Route path="/postcheckout" component={PostCheckout} />
+        <Route exact path="/products" component={ProductList} />
+        <Route exact path="/login" component={Login} />
+        <Route exact path="/signup" component={Signup} />
+        <Route exact path="/cart" component={Cart} />
+        <Route exact path="/postcheckout" component={PostCheckout} />
         {/* figure out how to dynamically get name descript */}
         {isLoggedIn && (
           <Switch>
             {/* Routes placed here are only available after logging in */}
             <Route exact path="/home" component={Profile} />
+            <Route component={HomePage} />
           </Switch>
         )}
         {/* Displays our Login component as a fallback */}
-        <Route component={Login} />
-        <Route path="/" component={LandingPage} />
+        <Route component={HomePage} />
       </Switch>
     )
   }
