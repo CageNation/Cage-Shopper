@@ -26,6 +26,7 @@ const Order = db.define(
   },
   {
     hooks: {
+      // OB/LM: recommend a setter method instead of a hook
       beforeValidate: function(order) {
         if (typeof order.orderData !== 'string') {
           order.orderData = JSON.stringify(order.orderData)

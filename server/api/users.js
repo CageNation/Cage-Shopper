@@ -21,6 +21,7 @@ router.get('/', async (req, res, next) => {
       next(err)
     }
   }
+  // OB/LM: missing else
 })
 
 // GET api/users/:id
@@ -69,8 +70,10 @@ router.put('/:id/cart', checkUser, async (req, res, next) => {
       orderData: req.body.products,
       completed: !!req.body.completed
     })
+    // OB/LM: consider moving the innards of the POST logic below to here (detect if a new cart needs to be made and make it)
     res.sendStatus(201)
   } catch (error) {
+    // OB/LM: firewood here, burn it
     console.log('PUT CART ERROR')
     next(error)
   }
@@ -93,8 +96,10 @@ router.post('/:id/cart', checkUser, async (req, res, next) => {
 // POST /api/users/guestCheckout
 // saves a completed guest order in DB with userId null
 
+// OB/LM: could be a POST /api/orders instead (more RESTful)
 router.post('/guestCheckout', async (req, res, next) => {
   try {
+    // OB/LM: web security issue, client can define the price of the order, maybe you want a method to calculate it
     await Order.create(req.body)
     res.sendStatus(201)
   } catch (error) {

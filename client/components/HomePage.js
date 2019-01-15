@@ -17,6 +17,7 @@ import {
 } from 'semantic-ui-react'
 import {NavLink} from 'react-router-dom'
 
+// OB/LM: listen to linter
 const getWidth = () => {
   const isSSR = typeof window === 'undefined'
 

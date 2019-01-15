@@ -6,6 +6,7 @@ import axios from 'axios'
 import {Button, Icon, Item, Label} from 'semantic-ui-react'
 import ReactHtmlParser from 'react-html-parser'
 
+// OB/LM: could make for a good test (especially if you separate out the local storage stuff)
 const addToCart = async (product, setCartSize, user) => {
   const currentItems = JSON.parse(localStorage.getItem('cart'))
 
