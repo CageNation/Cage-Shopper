@@ -152,10 +152,26 @@ class HomePage extends React.Component {
                 <Grid.Column width={5}>
                   <Header inverted as="h4" content="About" />
                   <List link inverted>
-                    <List.Item as="a">Products</List.Item>
-                    <List.Item as="a">Contact Us</List.Item>
-                    <List.Item as="a">Login</List.Item>
-                    <List.Item as="a">Logout</List.Item>
+                    <List.Item as="a">
+                      <a href="https://lotro-wiki.com/images/0/0b/Mordor_map.jpg">
+                        Sitemap
+                      </a>
+                    </List.Item>
+                    <List.Item as="a">
+                      <a href="https://i.chzbgr.com/full/1464005376/hE7B99BFA/">
+                        Contact Us
+                      </a>
+                    </List.Item>
+                    <List.Item as="a">
+                      <a href="https://www.reddit.com/r/onetruegod/">
+                        Religious Ceremonies
+                      </a>
+                    </List.Item>
+                    <List.Item as="a">
+                      <a href="https://image.jimcdn.com/app/cms/image/transf/none/path/s40c423127565d23a/image/i04f1f19b40a059c3/version/1441290841/image.jpg">
+                        Gazebo Plans
+                      </a>
+                    </List.Item>
                   </List>
                 </Grid.Column>
                 <Grid.Column width={7}>
