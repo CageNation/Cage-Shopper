@@ -3,9 +3,6 @@ import {connect} from 'react-redux'
 import CartList from './CartList'
 import {clearCart, setCart} from '../store'
 import axios from 'axios'
-//NOTE
-// When using localStorage you can only use strings
-// In order to use arrays you have to use JSON.stringify() and JSON.parse()
 
 class Cart extends Component {
   constructor() {
