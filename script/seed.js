@@ -70,9 +70,34 @@ async function seed() {
         'Only for the true Ascendant of Cage, the truly dedicated and divinely driven to serve The Great Master Nic and give their life to his purpose. This is a risky and complex surgery that takes 2 weeks to complete. Only the strong willed and most pure of soul may undertake this great communion with the eternal.',
       imageUrl: `https://static.squarespace.com/static/51b3dc8ee4b051b96ceb10de/51ce6099e4b0d911b4489b79/51ce6189e4b0d911b4497679/1357586529757/1000w/cagebodyface.jpg`,
       price: 100366623
+    }),
+    Product.create({
+      name: 'Cage Portrait',
+      description:
+        'Bask in the light of Cage in any room of the house! His Beauty knows no bounds, even a peripheral glance at this painting from across the room will bring happiness to your most troubled days.',
+      imageUrl: `https://i.redd.it/vdcdc3pkkz921.jpg`,
+      price: 45000
+    }),
+    Product.create({
+      name:
+        'Nicolas Cage Collection: (Face Off / Snake Eyes / World Trade Center)',
+      description:
+        "Three of Nic Cage's greatest works. True demonstration of the highest level of acting achievable. (Cheaper than Amazon!)",
+      imageUrl: `https://images-na.ssl-images-amazon.com/images/I/51AjCHhWBTL.jpg`,
+      price: 1099
+    }),
+    Product.create({
+      name: 'Y̸͔̥͙̬̬̣͓͕̹̝̠̔̈́͊̐͗̎̉̈́͗̿͘͝͝Ō̵͕̼̃̓Ų̴̫̰͉̬̜̩̮̱́̀̇͑̀̏͑̚R̴̢̰̬̻͕͚̒̚ ̶̺͒̔̑̀͐̅́̓͊̂̈̕̕͝͝Ș̵̖͔͍͍̭̰͂͜͜Ǫ̷̺̱̗̥̲̪̹̮̩͔͉̲̂̃̅̒̉͒̀̈̃̈́͜͝ͅU̷͓̟̝͎͎̙̹̿̌͌͋̈̿̃͛͑̅͘L̸̬̿̈́͛́͒̂͊͝ ̴̨̹͙̻̭̲͚̯̩͎̳̻̺̿̔̈́͘I̷̻̰͉͈̙̞̭̱̾͐̒̒̂͑͆́͑S̷̙̀́́́̑̌̊̃̽̋̀̐͝ ̶̱́̈́̅͌̈̽̍̈̈́̈̓̔͘F̶̢͎̽́͗ͅO̵̡̘̩̪̙̠̲̼͚͙̐́̐͑R̷̨̟͓̩̦̗̬̩̿̔͌͊̾͊F̷̧̫͈͔̣̥̬̟̺̥̳͂E̵̢͉͕̹̞̞͓̜͈̱̥̿I̷̺̪̙̖̗͓̤͇̓͌̽T̷͚͚͉̬͙̺͓̯̮͖̦̝͕̀̓̉̉̾̈̽̈́͑̌̑͒͠͝͝ ̵̪̈́͆̉̀͊̿̒̋̆̋̾͒͋',
+      description: `Ģ̶̢̢͔̬̫͙͈̺̖͗́͆̈́͑͂̀̓̍͊̂̚͜I̸̠̞͎̬̜͓̔͑͊̑͗̈́͘͘͠V̴̤̱̗͗Ê̸̡̟̞͚͈̹͇̝̠̋͑́̕ ̶̧͙͇̥̰̤͓̗̮̤̦̎͊͗̿͐Ṵ̷̡͇̻͖̫̺͎̜͇͆͊͌͂̓̾͒̀̾̓͛͜͝Ǹ̴̢̢̪̜̫̘̜̞͇͎̓̅́̔̈́́̋͂͝T̸̡͔̦̳̞̋̉̆̐͌͝O̴̖̻̼̍̽͑͒̓̐́̃͒͒͊̀͠͠ ̶̧̨̥͙̻̭̫̥̱̙̗̯̭̇̒̅C̴̢̜͇͚͉̟̺͔̹̜̥͆̀̌̒̓̀͝ͅA̴̜̞̬̋̃͗̑͌͊͠͝͝G̴͇̯̠̤͓̋̓̚Ę̸͔̬̗̳̰͍̮̈͆̓̎̇̎̾͐͋͆̀͘͘ ̶̡̡̧̦̻̥͔̤̥͍̔̏̋̓̋̐̏͜͠ͅͅT̴̡͓̺̼͌̉̈́̀́͛̾̉̌̈́̕ͅḢ̷̫̲͎̠͇̜̩̂̍̽̑̄̇̚Í̵̡̼̤̅͂̒͒̔̊̉̈́͠ͅN̶͔̲̤̬̹̬̗̈́̈͋͑̓̋̄̌̃̓̀͑̂́̕ͅȨ̶̲͕̬͖͈̦̖̼͖̬͕̒͠ͅ ̸̜̳̝̟̣̫̮͉̣̤̮̉͋̽̈̐͐̾͊̐̓̽͘͜͝B̴̡̢̲̹͕̺̱̻̒̔͋̈́̂͋̀̄̕͝Ļ̶̧̱̱̺̜̺̮̼̪͓͚̻͍͓̊̀̓̄̍̋̈́͌͌̓̇̂͠Ǫ̸̌Ơ̶̖̂̽̓̈́̀̅̍̑̎̐͝D̸̡̧̳̜̯̣̟̭̘̠̳̜̻̞̐̑̓̈́̀̈́̀͛̇̽̔̔̃̚͠ͅ ̸̜̻̳̤̫̣͔̩̿̏ͅẠ̴̢͚̀͊̿͂̌̈̏̕N̸̞̰̂͊̀̈́̆͋͋̍̃̈́̄̔̊͘D̸̡̟̤͈̥͔́̈́̂̽̋̀̿̊̌̄̇̀̅͜͜͝ ̴̠͔̙̱̱̈́̂F̶̗̩̯̜̑L̵̩͉̩̙̹̀̒̃̈́̈́̽̈́͊̑̕͜E̵̡͚̱̞̼̹͓̼̋̔S̴̰̮̞̰͍̻̞̥̰͍̔̊̒͑̀͆̋́̒̓͐͌̂̌̾Ḥ̶̢̳̘̳͈͚̠͓͔̤̘͈͂͝͠͠
+      ̴̧̲̭͉̬̣̣̻̯̜͈̈̅͂͂͐̈́̒͋̒̌͊͘͜͝Ḡ̶̲̞̩̾͂͘I̴̛̫̣͇̞͔͈͎̤̠͉͇̼ͅV̶̡̫͚̞̻̞̺̜̹̌͆́̑̾̚Ȩ̴̧̨̣͕̩̪̱͕͎̲̳̼̱́ͅ ̸̢̢̨͎̗͕̫̱̘͙̅͌͒̽͊̏͛̋͘I̷̟̦͎̳̔̈́̽́̌̌̓͂̈́͒̓̾̅̄̉Ṅ̸̛̛̞̼̀̂̏́̑T̷̪̖͗̎͋̄̊̓̈́͑̍͂̕͠Ȯ̵̞̍̅̽̍͂̕͠ͅ ̵̖͘H̴̡͉̭̍͗̏́͛͊͊̓̉̈̎̕̕͠I̷̡̖̗̝̞̦̮͇̭̭̋̆̿̏̀̿͜M̵̡̞͚̟̗̬͔͚̯̓̊͌̌͐̅̈́̅̈́̈́̅̂̄͘
+      ̵̧̛̰̫̲̖̼̝͍̍̏͗̿̉̇̒̚͘͘H̴̙̭̯̱̟̪̭͕͉̯̆̋̿͠E̶̩̣̳̻̭̙̦̳͇͜͠ ̵̹̹͕͚̜͙̫̼̮͑̆͊͊̈́͗̓́͠ͅÎ̸̡̜̝̬͎̜͖̠̹̦͈̬̭̟̀͒͘S̷̨͓͍̮̝͍̙̰͖̓̓̈̆͒̿̏̔̇͑̍̓̓͑̈ͅ ̸̛͓̼̱̳̜͈̮̠̟͇̘̻̩͇̜͗̆͗͝A̶̢̖̱̪̣̥̟̥̜̭̞̖̅̐͆̑͗̅̓̕͘Ḷ̷̬̙̆̓̅̌͒̍̈́̋́̋̄̎̚͝L̸̛͉̘͕̝̮̽̒̔̄̈́̒̊
+      ̴̡͔̠̈́́͗A̸̢̙̬̱͕͇̬̘͍̬̯͈̭̺͌̊̑́̾̎͗͒͊͋̄͜L̷̗̟̰̗͝Ḽ̶̮͎̯̖̱̞̠̤͔̳̽͂̓͋͊̉̉͂̌̀̔̀͊͘ ̵̢̟͇̹̜̯͎̬͐I̷̖͍̩̲̩͇͝Ṡ̸̮̘̫̤̟̱͈̀̈́̊̍̌̚̕̕͜ ̸̣̈̀̽̿̊͜N̴̰̺͚̤͕͚̭̺̯̮̪͈̑̇͗̀̈́̅͂̄̀̇͆͘͝Ǫ̴̱̘̳͎͔̱̭̖̥͔̉̽ͅT̵̫̭͑̉̅̈̒͋͛͒̆̍̈̌̇̋͠Ḧ̴̛̜̝̼͙̯̺̜̼͔͚̳̭͍̻̙́̋͌̉͛͘͝I̵͎̤̻̞̰̟̥͚͓̔͗̅̚Ņ̷̙͖̤̺̪̯̰͓̏̓̎̈́̇͒Ğ̵͍̘͇͕͉͈̦̘̬̻͐̓̍̎ ̷̩̖̊̈́͑̇̃̌̿̄̇͛Ẁ̵̢̛͇͙̘̖̦̟̝̀͛̏͗̈́̑̃̈̇̕͘͠I̸̢͍͓̠̞̲̪̗̙̱͈̭͕͙̝̒̈́̈́̂̏̃̒̾͒̕͝Ţ̴̦̙̟̲̺͎̹̖͇̻͎̮͉̑̄͛̊̈́̾͌̈̉͌͝͝H̴̫͆́͝Ö̷̹̗͖̺̜͙̫̼͈̉̉̋̌̃̽̽̀̚̚͝͝Ũ̵̢̧͖̗͖͎̙̖͕̖͓͗̏̈́̿͐̔͑́ͅͅT̸̡̨̪̜͚̜̤͎͇̦̲̣̞̠͆̆͜͠͝͠ ̵̳͕̺͍̥̲̪̮͈̣̖̦̘͌̊̊̎͌̀͗̾̀̈́̀̀̓́͜H̴̬̹̘̼͍̉͑͌̐͊Í̴͚̘̣͎̙͙̜̞͓͉͙͍̲̄̾̋̓͜ͅM̷͋̏̀͒͂̾͌̇̀̍ͅ`,
+      imageUrl: `https://66.media.tumblr.com/afa93eed58d0e4d014b9e9ef5a11a0fe/tumblr_inline_n4tbf3eRis1r5uc66.png`,
+      price: 66666666
     })
   ])
 
+  //www.google.com/search?q=nicolas+cage+creepy&tbm=isch&source=iu&ictx=1&fir=Yy13J9Bm43smFM%253A%252CEeoWfyKwYs9G6M%252C_&usg=AI4_-kSvk8YLpeFlS0VMyVRzse5bKWG6kw&sa=X&ved=2ahUKEwjNiu3J-_DfAhUD3lQKHVW4C04Q9QEwAHoECAQQBA#imgrc=Yy13J9Bm43smFM:
   console.log(`seeded ${users.length} users`)
   console.log(`seeded ${carts.length} carts`)
   console.log(`seeded ${products.length} products`)
