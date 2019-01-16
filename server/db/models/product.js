@@ -3,7 +3,7 @@ const db = require('../db')
 
 const Product = db.define('product', {
   name: {
-    type: Sequelize.STRING,
+    type: Sequelize.TEXT,
     allowNull: false
   },
   description: {
